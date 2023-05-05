@@ -605,8 +605,8 @@ class user{
 }
 const bebe=new user('David',15); //'David' y 15 van al constructor
 console.log(bebe.uAge) // 15
-console.log(bebe.uAge=20) // 20, como se hace bebe.uAge=20, entra por set uAge(n), this.age=n, luego va a get Auge()
-
+console.log(bebe.uAge=20) // 20, como se hace bebe.uAge=20, entra por set uAge(n), this.age=n, luego va a get uAge() pero en un proximo. 
+console.log(bebe.uAge) // 20, en este casi cambio el valor debido a la linea anterior.
 
 ES6: module
 Para que el código de JavaScript sea más ordenado, legible y mantenible; ES6 introduce una forma de manejar código en archivos de manera modular. Esto involucra exportar funciones o variables de un archivo, e importarlas en otros archivos donde se necesite.
