@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="prism.css">
+	<script src="prism.js"></script>
+    <style>
+        body{
+            background-color: black;
+        }
+        div{
+            display: flex;
+            color: white;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+<pre><code>
+ES6: set-add..
+Set es una nueva estructura de datos para almacenar elementos únicos, es decir, sin elementos repetidos.
+
+Cómo utilizar los Sets
+Para iniciar un Set, se debe crear una instancia de su clase a partir de un iterable. Generalmente, un iterable es un array.
+
+const set = new Set(iterable)
+
+Cómo manipular los Sets
+Para manipular estas estructuras de datos, existen los siguientes métodos:
+
+add(value): añade un nuevo valor.
+delete(value): elimina un elemento que contiene el Set, retorna un booleano si existía o no el valor.
+has(value): retorna un booleano si existe o no el valor dentro del Set.
+clear(value): elimina todos los valores del Set.
+size: retorna la cantidad de elementos del Set.
+
+ES7: exponentiation operator y array includes..
+
+La siguiente versión de ECMAScript fue publicada en 2016. Las siguientes características de ES7 o ES2016 que aprenderás son: el método includes de arrays y el operador de potenciación.
+
+Operador de potenciación
+El operador de potenciación (exponential operator) consiste en elevar una base a un exponente utilizando el doble asterisco (**).
+
+base ** exponente
+
+Por ejemplo, el cubo de 2 es igual a 8, matemáticamente expresado sería: $2^3=8$.
+
+const potencia = 2**3
+
+console.log(potencia) // 8
+Método includes
+El método includes determina si un array o string incluye un determinado elemento. Devuelve true o false, si existe o no respectivamente.
+
+Este método recibe dos argumentos:
+
+El elemento a comparar.
+El índice inicial desde donde comparar hasta el último elemento.
+Índices positivos y negativos
+Los índices positivos comienzan desde 0 hasta la longitud total menos uno, de izquierda a derecha del array.
+
+[0,1,2,3, ...., lenght-1]
+Los índices negativos comienzan desde -1 hasta el negativo de la longitud total del array, de derecha a izquierda.
+
+[-lenght, ...,  -3, -2, -1]
+Ejemplos utilizando el método includes
+El método includes se utiliza para arrays y strings. El método es sensible a mayúsculas, minúsculas y espacios.
+
+//Utilizando strings
+const saludo = "Hola mundo"
+
+saludo.includes("Hola") // true
+saludo.includes("Mundo") // false
+saludo.includes(" ") // true
+saludo.includes("Hola", 1) // false
+saludo.includes("mundo", -5) // true
+// Utilizando arrays
+const frutas = ["manzana", "pera", "piña", "uva"]
+
+frutas.includes("manzana") // true
+frutas.includes("Pera") // false
+frutas.includes("sandía") // false
+frutas.includes("manzana", 1) // false
+frutas.includes("piña", -1) // false
+frutas[0].includes("man") // true
+
+ES8: object entries y object values..
+
+Los métodos de transformación de objetos a arrays sirven para obtener la información de las propiedades, sus valores o ambas.
+
+Obtener los pares de valor de un objeto en un array
+Object.entries() devuelve un array con las entries en forma [propiedad, valor] del objeto enviado como argumento.
+
+const usuario = {
+    name: "Andres",
+    email: "andres@correo.com",
+    age: 23
+}
+
+Object.entries(usuario) 
+/* 
+[
+  [ 'name', 'Andres' ],
+  [ 'email', 'andres@correo.com' ],
+  [ 'age', 23 ]
+]  
+*/
+Obtener las propiedades de un objeto en un array
+Object.keys() devuelve un array con las propiedades (keys) del objeto enviado como argumento.
+
+const usuario = {
+    name: "Andres",
+    email: "andres@correo.com",
+    age: 23
+}
+
+Object.keys(usuario) 
+// [ 'name', 'email', 'age' ]
+Obtener los valores de un objeto en un array
+Object.values() devuelve un array con los valores de cada propiedad del objeto enviado como argumento.
+
+const usuario = {
+    name: 'Andres',
+    email: "andres@correo.com",
+    age: 23
+}
+
+Object.values(usuario) 
+// [ 'Andres', 'andres@correo.com', 23 ]
+
+ES8: string padding y trailing commas
+
+Las siguientes características de ES8 o ES2017 que aprenderás son: rellenar un string y trailing commas.
+
+Rellenar un string o padding
+El padding consiste en rellenar un string por el principio o por el final, con el carácter especificado, repetido hasta que complete la longitud máxima.
+
+Este método recibe dos argumentos:
+
+La longitud máxima a rellenar, incluyendo el string inicial.
+El string para rellenar, por defecto, es un espacio.
+Si la longitud a rellenar es menor que la longitud del string actual, entonces no agregará nada.
+
+Método padStart
+El método padStart completa un string con otro string en el inicio hasta tener un total de caracteres especificado.
+
+'abc'.padStart(10) // "       abc"
+'abc'.padStart(10, "foo") // "foofoofabc"
+'abc'.padStart(6,"123465") // "123abc"
+'abc'.padStart(8, "0") // "00000abc"
+'abc'.padStart(1) // "abc"
+Método padEnd
+El método padEnd completa un string con otro string en el final hasta tener un total de caracteres especificado.
+
+'abc'.padEnd(10) // "abc       "
+'abc'.padEnd(10, "foo") // "abcfoofoof"
+'abc'.padEnd(6, "123456") // "abc123"
+'abc'.padEnd(1) // "abc"
+Trailing commas
+Las trailing commas consisten en comas al final de objetos o arrays que faciliten añadir nuevos elementos y evitar errores de sintaxis.
+
+const usuario = {
+    name: 'Andres',
+    email: "andres@correo.com",
+    age: 23, //<-- Trailing comma
+}
+
+const nombres = [
+    "Andres",
+    "Valeria",
+    "Jhesly", //<-- Trailing comma
+ ]
+
+
+ES8: funciones asíncronas..
+En ECMAScript 2017 o ES8 fue añadida una nueva forma de manejar el asincronismo en JavaScript mediante funciones asíncronas.
+
+Cómo utilizar funciones asíncronas
+La función asíncrona se crea mediante la palabra reservada async y retorna una promesa.
+
+async function asyncFunction () {...}
+
+const asyncFunction = async () => { ... } 
+La palabra reservada await significa que espera hasta que una promesa sea resuelta y solo funciona dentro de una función asíncrona. Los bloques try / catch sirven para manejar si la promesa ha sido resuelta o rechazada.
+
+async function asyncFunction () {
+  try {
+    const response = await promesa()
+    return response
+  } catch (error) {
+    return error
+  }
+}
+¿Cuál es la mejor forma de manejar promesas, then o async / await? Ambas son muy útiles, manejar ambas te hará un mejor desarrollador.
+
+ES9: expresiones regulares..
+La siguiente versión de ECMAScript fue publicada en 2018. Las características de ES9 o ES2018 que aprenderás son: expresiones regulares y propiedades de propagación.
+
+Expresiones regulares
+Las expresiones regulares o RegEx (regular expresions) son patrones de búsqueda y manipulación de cadenas de caracteres increíblemente potente y están presentes en todos los lenguajes de programación.
+
+En JavaScript se crea este patrón entre barras inclinadas (/patrón/) y se utiliza métodos para hacer coincidir la búsqueda.
+
+const regexData = /([0-9]{4})-([0-9]{2})-([0-9]{2})/
+const match = regexData.exec('2018-04-20')
+Este es un tema extenso, por lo que te recomiendo seguir el curso y leer los métodos sobre expresiones regulares en JavaScript:
+
+Curso de Expresiones Regulares
+Expresiones regulares en JavaScript
+Propiedades de propagación
+Las propiedades de propagación consisten en expandir las propiedades de un objeto utilizando el spread operator. Sirve para crear nuevos objetos a partir de otros.
+
+const objeto = {
+  nombre: "Andres",
+  age: 23,
+}
+
+const usuario = {
+    ...objeto,
+    plataforma: "Platzi"
+}
+Crear copias de objetos utilizando las propiedades de propagación
+Semejante a crear copias de arrays utilizando el operador de propagación, se puede realizar copias de objetos en un solo nivel mediante las propiedades de propagación.
+
+De esta manera el segundo objeto tendrá una referencia en memoria diferente al original.
+
+const objetoOriginal = {a: 1, b: 2}
+const objetoReferencia = objetoOriginal
+const objetoCopia = {...objetoOriginal}
+
+objetoReferencia === objetoOriginal // true
+objetoOriginal === objetoCopia // false
+Cuidado con la copia en diferentes niveles de profundidad
+El operador de propagación sirve para crear una copia en un solo nivel de profundidad, esto quiere decir que si existen objetos o arrays dentro de un objeto a copiar. Entonces los sub-elementos en cada nivel, tendrán la misma referencia en la copia y en el original.
+
+const original = { datos: [1, [2, 3], 4, 5] }
+const copia = { ...original }
+
+original === copia // false
+original["datos"] === copia["datos"] // true
+La manera de solucionar esto es más compleja, tendrías que utilizar el operador de propagación para cada elemento en cada nivel de profundidad.
+
+Sin embargo, recientemente salió una forma de crear una copia profunda con StructuredClone. Aunque es una característica muy reciente, así que revisa que navegadores tienen soporte.
+
+const original = { datos: [1, [2, 3], 4, 5] }
+const copia = structuredClone(original)
+
+original === copia // false
+original["datos"] === copia["datos"] // false
+
+ES9: Promise.finally..
+Las siguientes características de ES9 o ES2018 que aprenderás son: método finally para promesas y generadores asíncronos.
+
+Método finally en promesas
+El método finally para promesas consiste en ejecutar código después que una promesa haya sido ejecutada como resuelta o rechazada.
+
+promesa()
+    .then(response => console.log(response) // Promesa resuelta
+    .catch(error => console.log(response) // Promesa rechazada
+    .finally( () => console.log("Finalizado") ) // Código final  
+Generadores asíncronos
+Los generados asíncronos son semejantes a los generadores que ya conoces, pero combinando sintáxis de promesas.
+
+async function* anotherGenerator() {
+  yield await Promise.resolve(1)
+  yield await Promise.resolve(2)
+  yield await Promise.resolve(3)
+}
+
+const generador = anotherGenerator()
+generador.next().then(respuesta => console.log(respuesta.value))
+generador.next().then(respuesta => console.log(respuesta.value))
+generador.next().then(respuesta => console.log(respuesta.value))
+Cómo utilizar for await
+De la misma manera, for await es un ciclo repetitivo que se maneja asíncronamente. El ciclo siempre debe estar dentro de una función con async.
+
+El valor es cada elemento del iterable puede tener cualquier nombre, por eso se inicia con let nombre.
+
+async function forAwait() {
+  const nombres = ["Alexa", "Oscar", "David"]
+  for await (let valor of nombres) {
+    console.log(valor)
+  }
+}
+
+forAwait()
+
+ES10: flat-map y trimStart-trimEnd..
+La siguiente versión de ECMAScript fue publicada en 2019. A continuación aprenderás sobre aplanamiento de arrays y eliminar espacios en blanco de un string.
+
+Qué es el aplanamiento de arrays
+El aplanamiento consiste en transformar un array de arrays a una sola dimensión. Los métodos flat y flatMap permitirán realizar el aplanamiento.
+
+Método flat
+El método flat devuelve un array donde los sub-arrays han sido propagados hasta una profundidad especificada.
+
+Este método es inmutable, es decir, retorna un nuevo array con los cambios y no cambia el array original.
+
+Este método recibe un argumento:
+
+La profundidad del aplanamiento, por defecto, tiene un valor de 1.
+Si se desea aplanar todos los sub-arrays en una sola dimensión, utiliza el valor de Infinity.
+
+const array = [1,2,[3,4],5,6]
+const result = array.flat() 
+result// [1,2,3,4,5,6]
+
+const array2 = [1, 2, [3, 4, [5, 6]]];
+const result2 = array2.flat() 
+result2// [1, 2, 3, 4, [5, 6]]
+
+const array3 = [1, 2, [3, 4, [5, 6]]]
+const result3 = array3.flat(2) 
+result3// [1, 2, 3, 4, 5, 6]
+
+const array4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]]
+const result4 = array4.flat(Infinity) 
+result4// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Método flatMap
+El método flatMap es una combinación de los métodos map y flat. Primero realiza la iteración de los elementos del array (como si fuera map), y después los aplana en una sola profundidad (como si fuera flat).
+
+Este método es inmutable, es decir, retorna un nuevo array con los cambios y no cambia el array original.
+
+Este método recibe los mismos argumentos que el método map.
+
+const strings = ["Nunca pares", "de Aprender"]
+strings.map(string => string.split(" ")) 
+// [ [ 'Nunca', 'pares' ], [ 'de', 'Aprender' ] ]
+strings.flatMap(string => string.split(" ")) 
+// [ 'Nunca', 'pares', 'de', 'Aprender' ]
+
+const numbers = [1,2, 3, 4]
+numbers.map(number => [number * 2]) 
+// [[2], [4], [6], [8]]
+numbers.flatMap(number => [number *2]) 
+// [2, 4, 6, 8]
+
+// Cuidado, primero hace el map y luego el flat
+const numbers2 = [1,[2,3], 4, 5]
+numbers2.flatMap(number => [number *2]) 
+// [ 2, NaN, 8, 10 ]
+// * Recuerda: NaN = No a Number
+Eliminar espacios en blanco de un string
+Existen tres métodos para eliminar espacios en blanco de un string:
+
+El método trim elimina los espacios en blanco al inicio y al final.
+El método trimStart o trimLeft elimina los espacios al inicio.
+El método trimEnd o trimRight elimina los espacios al final.
+const saludo = "      hola      "
+const result1 = saludo.trim()
+const result2 = saludo.trimStart()
+const result3 = saludo.trimEnd()
+
+result1 // 'hola'
+result2 // 'hola      '
+result3 // '      hola'
+
+ES10: try catch y fromEntries..
+Las siguientes características de ES10 o ES2019 que aprenderás son: parámetro opcional de catch y un método para tranformar arrays a objetos
+
+Parámetro opcional de catch
+El parámetro opcional de catch permite omitir el error si es necesario.
+
+try {
+  // Manejar el código
+} catch (err) {
+  // Se utiliza el parámetro `err`
+}
+
+try {
+  // Manejar el código
+} catch {
+  // Manejar el error sin el parámetro.
+}
+Aunque siempre es recomendable manejar el error como parámetro, ya que tiene más información del problema.
+
+Cómo transformar un array de arrays en un objeto
+El método Object.fromEntries devuelve un objeto a partir de un array donde sus elementos son las entries en forma [propiedad, valor].
+
+Se considera la operación inversa de Object.entries().
+
+const arrayEntries = [
+  [ 'name', 'Andres' ],
+  [ 'email', 'andres@correo.com' ],
+  [ 'age', 23 ]
+] 
+
+const usuario = Object.fromEntries(arrayEntries) 
+
+console.log(usuario)
+/* {
+  name: 'Andres',
+  email: 'andres@correo.com',
+  age: 23
+}
+*/
+
+ES11: optional chaining..
+Cuando intentas acceder a propiedades de un objeto que no existen, JavaScript te retornará undefined.
+
+const usuario = {}
+console.log(usuario.redes) // undefined
+Al acceder a una propiedad más profunda de un objeto, que previamente fue evaluada como undefined, el programa se detendrá y mostrará un error de tipo.
+
+const usuario = {}
+console.log(usuario.redes.facebook) 
+// TypeError: Cannot read properties of undefined (reading 'facebook')
+Es como intentar ejecutar undefined.facebook, lo cual es un error de tipo, debido a que undefined es un primitivo, no es un objeto.
+
+Cómo utilizar el encadenamiento opcional
+El encadenamiento opcional u optional chaining (?.) detiene la evaluación del objeto cuando el valor es undefined o null antes del (?.), retornando undefined sin detener el programa por un error.
+
+const usuario = {}
+console.log(usuario.redes?.facebook) 
+// undefined
+Pero, ¿por qué usaría propiedades de un objeto vacío? Cuando realizas peticiones, el objeto no contiene la información solicitada en seguida, por ende, necesitas que el programa no colapse hasta que lleguen los datos y puedas utilizarlos.
+
+No abuses del encadenamiento opcional
+El encadenamiento opcional se debe utilizar únicamente cuando probablemente un valor no exista.
+
+Por ejemplo, en un objeto usuario que siempre existe, pero la propiedad redes es opcional, entonces se debería escribir usuario.redes?.facebook y no usuario?.redes?.facebook.
+
+Si abusas del encadenamiento opcional y existe un error en un objeto, el programa podría “ocultarlo” por un undefined, provocando que el debugging sea más complicado.
+
+ES11: BigInt y Nullish..
+Las siguientes características de ES2020 o ES11 que aprenderás son: nuevo tipo de dato bigint y operador Nullish Coalescing (??).
+
+Big Int, enteros muy grandes
+El nuevo dato primitivo bigint permite manejar números enteros muy grandes. Existen dos formas de crear un bigint: el número entero seguido de n o mediante la función BigInt
+
+const number1 = 45n
+const number2 = BigInt(45)
+
+typeof 45n // 'bigint'
+JavaScript tiene límites numéricos, un máximo Number.MAX_SAFE_INTEGER y un mínimo Number.MIN_SAFE_INTEGER.
+
+const max = Number.MAX_SAFE_INTEGER
+const min = Number.MIN_SAFE_INTEGER
+
+console.log(max)  // 9007199254740991
+console.log(min) // -9007199254740991
+Después de los límites, los cálculos muestran resultados erróneos. Los bigint ayudan a manejar operaciones de enteros fuera de los límites mencionados.
+
+const increment = 2
+const number = Number.MAX_SAFE_INTEGER + increment
+const bigInt = BigInt(Number.MAX_SAFE_INTEGER) + BigInt(increment)
+
+console.log(number) // 9007199254740992
+console.log(bigInt) // 9007199254740993n
+Se añade la misma cantidad a ambos tipos de datos, sin embargo, el tipo numérico da un resultado diferente al esperado.
+
+Operador Nullish Coalescing
+El operador nullish coalescing (??) consiste en evaluar una variable si es undefined o null para asignarle un valor.
+
+El siguiente ejemplo se lee como: ¿usuario.name es undefined o null? Si es así, asígnale un valor por defecto "Andres", caso contrario asigna el valor de usuario.name.
+
+const usuario1 = {}
+const nombre1 = usuario1.name ?? "Andres"
+
+const usuario2 = {name: "Juan"}
+const nombre2 = usuario2.name ?? "Andres"
+
+console.log(nombre1) // 'Andres' 
+console.log(nombre2) // 'Juan'
+Diferencia entre el operador OR y el Nullish coalescing
+El operador OR (||) evalúa un valor falsey. Un valor falsy es aquel que es falso en un contexto booleano, estos son: 0, "" (string vacío), false, NaN, undefined o null.
+
+Puede que recibas una variable con un valor falsy que necesites asignarle a otra variable, que no sea null o undefined. Si evalúas con el operador OR, este lo cambiará, provocando un resultado erróneo.
+
+const id = 0
+
+const orId = id || "Sin id"
+const nullishId = id ?? "Sin id"
+
+console.log( orId ) //  'Sin id'
+console.log( nullishId ) // 0
+
+ES11: Promise.allSettled..
+En alguna situación necesitarás manejar varias promesas y obtener sus resultados. ¿Cómo? Utilizando los métodos Promise.all y Promise.allSettled.
+
+Promise.all
+El método Promise.all sirve para manejar varias promesas al mismo tiempo. Recibe como argumento un array de promesas.
+
+Promise.all([promesa1, promesa2, promesa3])
+    .then(respuesta => console.log(respuesta))
+    .catch(error => console.log(error))
+El problema es que Promise.all() se resolverá, si y solo si todas las promesas fueron resueltas. Si al menos una promesa es rechazada, Promise.all será rechazada.
+
+Promise.allSettled
+Promise.allSettled() permite manejar varias promesas, que devolverá un array de objetos con el estado y el valor de cada promesa, haya sido resuelta o rechazada.
+
+const promesa1 = Promise.reject("Ups promesa 1 falló")
+const promesa2 = Promise.resolve("Promesa 2")
+const promesa3 = Promise.reject("Ups promesa 3 falló")
+
+Promise.allSettled([promesa1, promesa2, promesa3])
+    .then(respuesta => console.log(respuesta))
+
+/* [
+  {
+    status: 'rejected',
+    reason: 'Ups promesa 1 falló'
+  },
+  { status: 'fulfilled', value: 'Promesa 2' },
+  {
+    status: 'rejected',
+    reason: 'Ups promesa 3 falló'
+  }
+] */
+¿Debería usar Promise.allSettled en lugar de Promise.all? No, porque ambas son muy útiles dependiendo cómo quieras manejar tus promesas.
+
+ES11: globalThis y matchAll..
+⚠️ En el código de la clase se escribe selft para acceder al ámbito global de un webworker, y debería ser self.
+
+Las siguientes características de ES2020 que aprenderás son: el objeto global para cualquier plataforma y el método matchAll para expresiones regulares.
+
+Objeto global para cualquier plataforma
+El motor de JavaScript, aquel que compila tu archivo y lo convierte en código que entiende el computador, al iniciar la compilación crea un objeto global.
+
+El objeto global proporciona funciones y variables propias e integradas en el lenguaje o el entorno. Dependiendo la plataforma, este objeto global tendrá un nombre diferente.
+
+En el navegador el objeto global es window, para Node.js es global, y así para cada entorno. Sin embargo, en Node.js no podrás acceder a window, ni en el navegador podrás acceder a global.
+
+Para estandarizar el objeto global se creó globalThis, un objeto compatible para cualquier plataforma.
+
+// Ejecuta el siguiente código y observa que muestra
+console.log(window)
+console.log(globalThis)
+
+// En el navegador
+window === globalThis // true
+
+// En Node.js
+global === globalThis // true
+Método matchAll para expresiones regulares
+El método matchAll de los strings devuelve un iterable con todas las coincidencias del string específico a partir de una expresión regular, colocada como argumento.
+
+string.matchAll(regex)
+
+En el iterable, existe una propiedad denominada index con el índice del string donde la búsqueda coincide.
+
+const regex = /\b(Apple)+\b/g
+
+const fruit = "Apple, Banana, Kiwi, Apple, Orange, etc. etc. etc."
+
+// Tranformación del iterable retornado a array
+const array = [...fruit.matchAll(regex)]
+console.log(array)
+/*
+[
+  [
+    'Apple',
+    'Apple',
+    index: 0,
+    input: 'Apple, Banana, Kiwi, Apple, Orange, etc. etc. etc.',
+    groups: undefined
+  ],
+  [
+    'Apple',
+    'Apple',
+    index: 21,
+    input: 'Apple, Banana, Kiwi, Apple, Orange, etc. etc. etc.',
+    groups: undefined
+  ]
+]
+*/
+
+ES11: dynamic Import..
+La expresión import() permite manejar módulos dinámicamente, ya que la sintaxis de ECMAScript import ... from ... no lo permite.
+
+Cómo utilizar importación dinámica
+La importación dinámica consiste en cargar los módulos cuando el usuario los vaya a utilizar, y no al iniciar la aplicación. Esto permite que la página web sea más rápida, porque descarga menos recursos.
+
+La expresión import() recibe un argumento de tipo string con la ruta del módulo a importar y devuelve una promesa.
+
+const ruta = "./modulo.js"
+
+// Utilizando promesas
+import(ruta)
+    .then( modulo => {
+        modulo.funcion1()
+        modulo.funcion2()
+    })
+    .catch(error => console.log(error))
+    
+// Utilizando async/await
+async function importarModulo(rutaDelModulo) {
+    const modulo = await import(rutaDelModulo)
+    modulo.funcion1()
+    modulo.funcion2()
+}
+
+importarModulo(ruta)
+Ejemplo utilizando importación dinámica
+De esta manera puedes utilizar una importación dinámica en tu aplicación para desencadenar una descarga de un módulo cuando el usuario lo vaya a utilizar. Por ejemplo, al realizar clic en un botón.
+
+const boton = document.getElementById("boton")
+
+boton.addEventListener("click", async function () {
+    const modulo = await import('./modulo.js')
+    modulo.funcion()
+})
+Puedes usar las herramientas de desarrollador para visualizar la descarga de archivos al realizar clic en el botón.
+
+ES12: numeric-separators y replaceAll..
+La siguiente versión de ECMAScript fue publicada en 2021. Las siguientes características de ES12 o ES2021 que aprenderás son: separadores numéricos y método replaceAll para strings.
+
+Separadores numéricos
+Los separadores numéricos ayudan a la legibilidad de cantidades con varias cifras. Se utiliza el caracter guion bajo ( _ ) para separar las cifras, y no afecta a la ejecución del programa.
+
+Lo ideal es separar cada 3 cifras, para visualizar los miles, millones, billones, etc.
+
+// 🔽 Baja legibilidad
+const numero1 = 3501548945
+console.log( numero1 ) // 3501548945
+
+// ✅ Alta legibilidad
+const numero2 = 3_501_548_945
+console.log( numero1 ) // 3501548945
+De esta manera puedes identificar el número rápidamente.
+
+Método replaceAll
+El método replaceAll retorna un nuevo string, reemplazando todos los elementos por otro.
+
+Este método recibe dos argumentos:
+
+El patrón a reemplazar, puede ser un string o una expresión regular.
+El nuevo elemento que sustituye al reemplazado.
+Este procedimiento fue creado para solucionar el problema que tenía el método replace, que realizaba la misma función de reemplazar elementos, pero solamente una sola vez por invocación.
+
+const mensaje = "JavaScript es maravilloso, con JavaScript puedo crear el futuro de la web."
+
+mensaje.replace("JavaScript", "Python")
+// 'Python es maravilloso, con JavaScript puedo crear el futuro de la web.'
+
+mensaje.replaceAll("JavaScript", "Python")
+// 'Python es maravilloso, con Python puedo crear el futuro de la web.'
+
+mensaje.replaceAll(/a/g, "*")
+// 'J*v*Script es m*r*villoso, con J*v*Script puedo cre*r el futuro de l* web.'
+
+ES12: promise-any y métodos privados..
+Las siguientes características de ES12 o ES2021 que aprenderás son: métodos privados en clases y Promise.any.
+
+Métodos privados de clases
+Los métodos privados consiste en limitar el acceso a propiedades y métodos agregando el caracter numeral ( #). Por defecto, las propiedades y métodos de una clase en JavaScript son públicas, es decir, se puede acceder a ellos fuera de la clase.
+
+class Clase {
+  #private(valor){
+    console.log(valor)
+  }
+  
+  public(valor){
+    console.log(valor)
+  }
+}
+
+const clase = new Clase()
+clase.public("Hola")  // 'Hola'
+clase.private("Hola") // TypeError: clase.private is not a function
+Promise.any
+Promise.any() es otra forma de manejar varias promesas, que retornará la primera promesa que sea resuelta y rebotará si todas las promesas son rechazadas.
+
+const promesa1 = Promise.reject("Ups promesa 1 falló")
+const promesa2 = Promise.reject("Ups promesa 2 falló")
+const promesa3 = Promise.resolve("Promesa 3")
+
+
+Promise.any([promesa1, promesa2, promesa3])
+    .then(respuesta => console.log(respuesta)) // Promise 3
+    .catch(error => console.log(error))
+
+ES13: at
+El método at de arrays sirve para acceder a los elementos a partir del índice.
+
+array.at(índice)
+
+Índices positivos y negativos en arrays
+Los índices positivos comienzan desde 0 hasta la longitud total menos uno, de izquierda a derecha del array. El índice 0 es la primera posición.
+
+[0,1,2,3, ...., lenght-1]
+Los índices negativos comienzan desde -1 hasta el negativo de la longitud total del array, de derecha a izquierda. El índice -1 es la última posición.
+
+[-lenght, ...,  -3, -2, -1]
+Cómo utilizar el método at
+La utilidad más importante de este método es para manejar índices negativos. Algo que no se puede con la notación de corchetes.
+
+const nombres = ["Andres", "Valeria", "Ana", "Ramiro", "Richard"]
+
+nombres.at(-1) // "Richard"
+nombres[-1] // undefined
+nombres.at(-3) // "Ana"
+nombres[nombres.length -1] // "Richard"
+Puedes utilizar la notación de corchetes, pero necesitas obtener la longitud del array y restarle una unidad, generando mucho código que puede volverse difícil de leer.
+
+nombres[nombres.length -1] // "Richard"
+
+ES13: top level await en el consumo de una API..
+Top level await permite utilizar la palabra reservada await, sin estar dentro de una función asíncrona con async. Sin embargo, únicamente se puede utilizar await en la parte superior del archivo de un módulo.
+
+Cómo utilizar top level await
+Anterior a ECMAScript 13, cuando se introdujo funciones asíncronas, si utilizabas await fuera de async, existirá un error de sintáxis.
+
+// Error
+await fetch(URL)
+// SyntaxError: await is only valid in async function
+Ahora, con top level await esto es posible, sin ningún error. Esto puede servir para importaciones de manera dinámica o iniciar la conexión de tus bases de datos. Siempre y cuando respetes que debe estar en la parte encima del archivo de tipo módulo.
+
+Pagina para mirar actualizaciones del ECMA: https://www.ecma-international.org/publications-and-standards/standards/ecma-262/
+
+</code></pre>
+</div>
+</body>
+</html>
