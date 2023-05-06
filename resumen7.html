@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campuslands</title>
+    <link rel="stylesheet" href="prism.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+	<script src="prism.js"></script>
+</head>
+<body>
+    <h1>Ejecutar json-server</h1>
+
+<pre><code class="language-javascript">    
+//MAYO 4
+
+//Conceptos impotantes:
+npm: (Node Package Manager) es un gestor de paquetes para Node.js, que permite a los desarrolladores instalar y compartir fácilmente módulos y librerías de código fuente abierta que se utilizan en aplicaciones de Node.js.
+
+node.js: es ejecutar js en el servidor (backend) y *NO* en el navegador
+
+LTS son las siglas de "Long Term Support", que en español significa "Soporte a Largo Plazo".
+
+nvm: herramienta de línea de comandos que permite a los desarrolladores instalar y administrar múltiples versiones de Node.js en su sistema.
+nvm: Node Version Manager
+
+Comandos para node.js y proceso para levantar el servidor (es decir usar javascript en el lado ddel servidor):
+nvm list-remote //para mostrar lista de versiones disponibles
+//las versiones mas estable y mejores estan con "LTS"
+//la mejor version es: Latest LTS: Hydrogen
+//el simbolo que aparece asi: -> v18.0.0 significa que ya esta instalada al version v18.0.0 de node.js
+
+nvm --version //para saber que version hay y que version se tiene
+
+//si la version a instalar es v18.0.0 hacer:
+nvm install 18.0.0 //instala la version v18.0.0
+//si le aparece error es porque debera dejar de usar alguna version que ya esta usandose, hacer lo siguiente (respira):
+nvm deactivate //deja de usar node.js en caso de tenerse abierta o ejecutandose
+nvm uninstall v18.0.0 //desinstala la version v18.0.0 o la que tengas instalada
+//ahora si hacer:
+nvm install 18.0.0 //instala la version v18.0.0
+
+nvm use v18.0.0 //es para usar una cierta version, en este caso es la v18.0.0
+
+code . //abre VSC (Visual Studio Code)
+
+//obligatorio crear:
+db.json //crearlo en VSC
+
+//los siguientes comando ejecutarlo en la terminal de VSC
+npm init -y //se inicializa y crea un archivo package.json
+npm i json-server //se crea el archivo package-lock.json
+
+//en la linea 6 del documento package.json modificar para que siempre este cargando:
+"test": "echo \"Error: no test specified\" && exit 1"
+//cambiarla linea anterior por:
+"server": "json-server --watch db.json"
+
+//estar atento que no este en debuger, debugar el codigo al correr los comandos siguientes ya que tendria error
+//antes de todo tener en cuenta que no sea que no este en modo debug "en VSC se da click donde hay una emoji de play para quitarlo, para desactivarlo ", esto es lo mismo que arriba
+//ejecutar el comando
+npm run server //crea el servidor y lo levanta, listo ya tienes un servidor
+
+//luego ir aqui a ese link, en esa parte esta la documentacion:
+http://localhost:3000/
+
+------------------------------------------------------------------------------------
+//Otro conceptos imporantes:
+AJAX (Asynchronous JavaScript And XML): es una técnica de desarrollo web que permite actualizar una parte de una página web sin tener que recargar toda la página.
+
+JSON Server: es una herramienta que permite crear rápidamente una API RESTful simulada a partir de un archivo JSON. Con JSON Server, los desarrolladores pueden crear un servidor web falso que se ejecuta en su máquina local y proporciona una API RESTful completa basada en un archivo JSON.
+
+peticion request: es un mensaje que se envía desde un cliente (como un navegador web) a un servidor con el fin de solicitar un recurso específico, como una página web, un archivo, una imagen, un vídeo, una API, etc.
+peticion request: el cliente especifica el tipo de petición que está haciendo (como GET, POST, PUT, DELETE, entre otros), la dirección del servidor y la ruta del recurso que se está solicitando
+
+JSON: es un formato de texto plano que utiliza una sintaxis similar a la de los objetos de JavaScript.
+JSON (JavaScript Object Notation): es un formato de intercambio de datos ligero y fácil de leer para máquinas y humanos.
+JSON: es el que menos pesa
+XML: era como antes se hacia esto del intercambio de datos
+
+//Conceptos en esto de peticion request
+//Tipos de peticiones:
+GET: Se utiliza para obtener datos de un servidor. Es decir, cuando un cliente hace una solicitud GET a un servidor, el servidor envía una respuesta que contiene los datos solicitados en el cuerpo de la respuesta. Es comúnmente utilizado para solicitar páginas web, imágenes, documentos y otros recursos que se pueden acceder a través de una URL.
+
+POST: Se utiliza para enviar datos a un servidor y crear un nuevo recurso. Por ejemplo, cuando un usuario envía un formulario de registro en un sitio web, los datos del formulario se envían al servidor utilizando una solicitud POST. El servidor puede entonces procesar los datos y crear una nueva entrada en una base de datos o realizar cualquier otra acción requerida.
+
+PUT: Se utiliza para actualizar un recurso existente en un servidor. Cuando se realiza una solicitud PUT, el servidor reemplaza el recurso existente con los nuevos datos proporcionados en el cuerpo de la solicitud.
+
+PATCH: Similar a PUT, se utiliza para actualizar un recurso existente en un servidor. Sin embargo, a diferencia de PUT, PATCH actualiza solo los campos específicos del recurso que se han cambiado, en lugar de reemplazar todo el recurso.
+
+DELETE: Se utiliza para eliminar un recurso en un servidor. Por ejemplo, cuando un usuario desea eliminar su cuenta en un sitio web, se realiza una solicitud DELETE al servidor para eliminar los datos de la cuenta del servidor.
+
+OPTIONS: Se utiliza para solicitar información sobre las opciones de comunicación disponibles para una URL o servidor en particular. Por ejemplo, cuando un navegador web envía una solicitud OPTIONS a un servidor, el servidor puede responder con una lista de métodos HTTP compatibles, opciones de autenticación y otros detalles de configuración.
+
+
+//Mayo 5, Comando y proceso para usar json-server como base de datos
+//Para correr el json-server en la terminal hacer lo siguiente:
+//Abrir VSC e ir y ejecutar los siguientes comandos en la terminal de VSC:
+npm install -g json-server //para instalar json-server
+json-server -w db.json -p 4001 //es de la forma json-server -w nombreArchivoJson.json -p NumeroDePuerto //en nombreArchivoJson.json se alojara la base de datos como json
+
+//listo ya esos fueron ya todos los comandos usados
+
+
+
+////////AUN POR REVISAR
+
+await //es para devolver si hay un error
+
+headers //son los encabezados de a donde se esta enviando la informacion, es decir propiedades del archivo al viajar por la red
+
+ejercicio: para mirar los headers en youtube
+link: https://www.youtube.com/
+entrar al link
+luego ir a inspeccionar la pagina
+ir a Network
+darle en reload o recargar la pagina
+dar click encima de 200, u otras cosas que se cargan ahi
+luego aparecera Headers y otras cosas
+en fin ya visualizas los headers
+
+
+El método FormData() se utiliza para obtener todos los datos del formulario en forma de objeto FormData.
+
+Object.fromEntries(): convierte ese objeto FormData en un objeto JavaScript normal
+//toma una matriz de pares clave-valor (en este caso, los campos del formulario y sus valores) y devuelve un objeto JavaScript con esas claves y valores.
+
+.target // El target en este caso se refiere al elemento HTML que está siendo afectado por el evento que se está manejando
+
+En HTML, los elementos de formulario, como los botones, pueden tener atributos personalizados, que se definen con el prefijo data-. En este caso, se asume que el botón que se ha hecho clic para enviar el formulario tiene un atributo personalizado llamado data-accion.
+
+La propiedad e.submitter representa el botón que se ha hecho clic para enviar el formulario, y se utiliza el atributo dataset para acceder al valor personalizado del atributo data-accion.
+
+let opc = e.submitter.dataset.accion //en opc se guarda el valor que esta en data-accion, en este caso puede ser GET,PUT,DELETE... depende del botón que se ha hecho clic para enviar el formulario.
+es decir que opc puede tomar
+opc="GET"
+opc="PUT"
+
+opc[e.submitter.dataset.accion](data) // la parte opc[e.submitter.dataset.accion] encuentra el valor del objeto y luego el (data) lo que hace es que le pasa los datos a dentro del objeto en caso de una funcion. Asi: opc[e.submitter.dataset.accion](data)
+
+en los objetos tener una llave asi: "GET":value ES IGUAL A 'GET':value IGUAL TAMBIEN A GET:value
+
+async para funcion asincronica:
+Una función asíncrona es una función que trabaja de manera asincrónica, lo que significa que no bloquea el hilo principal de ejecución mientras espera que se completen ciertas tareas.
+
+Link para estudiar URL en Javascript (peticiones): https://lenguajejs.com/javascript/peticiones-http/url/
+
+
+
+</code></pre>
+    <center><a href=""></a></center>
+</body>
+</html>
