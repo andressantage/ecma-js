@@ -8,20 +8,16 @@
     <link rel="stylesheet" href="prism.css">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 	<script src="prism.js"></script>
-    <style>
-body{
-    background-color: black;
-}
-.cuadro{
-    display: flex;
-    justify-content: center;
-}
-    </style>
+	<style>
+		body{
+	background-color:black;
+		}
+	</style>
 </head>
 <body>
-<h1>ECMA</h1>
-    <div class="cuadro">
-<pre><code class="language-javascript">
+    <h1 style="color: white">Repaso HTML y CSS</h1>
+    <h2></h2>
+<pre><code class="language-html">
 Layout
 Cuando hablamos de layout estamos hablando del diseño de nuestra página.
 Las etiquetas que utilizamos aquí son la base en donde van a ir todo el contenido.
@@ -57,27 +53,27 @@ Es el texto que nos indica que tenemos que hacer con cierto input en particular.
 button
 Nos permite enviar los formularios y hacen parte de otras partes de nuestra página si queremos.
 
-<b>: Pone tu texto en negritas (pero esta etiqueta NO tiene sentido semántico).
-<strong>: También pone tu texto en negrita, pero esta SÍ tiene sentido semántico (Google le da relevancia al texto que pongas ahí).
-<i>: Pone tu texto en cursivas (pero esta etiqueta NO tiene sentido semántico).
-<em>: También pone tu texto en cursivas, pero esta SÍ tiene sentido semántico (Google le da relevancia al texto que pongas ahí).
-<br>: Hace un salto de línea, funciona como si diéramos un enter con el teclado 
+&lt;b&gt;: Pone tu texto en negritas (pero esta etiqueta NO tiene sentido semántico).
+&lt;strong&gt;: También pone tu texto en negrita, pero esta SÍ tiene sentido semántico (Google le da relevancia al texto que pongas ahí).
+&lt;i&gt;: Pone tu texto en cursivas (pero esta etiqueta NO tiene sentido semántico).
+&lt;em&gt;: También pone tu texto en cursivas, pero esta SÍ tiene sentido semántico (Google le da relevancia al texto que pongas ahí).
+&lt;br&gt;: Hace un salto de línea, funciona como si diéramos un enter con el teclado 
 
 para hacer listas:
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 para formularios:
-<form action="">
-    <label for="name">Nombre</label>
-    <input type="text" id="name">
-</form>
+&lt;form action=""&gt;
+    &lt;label for="name"&gt;Nombre&lt;/label&gt;
+    &lt;input type="text" id="name"&gt;
+&lt;/form&gt;
 
 para enlaces:
-<a href="LINK">Aqui</a>
+&lt;a href="LINK"&gt;Aqui&lt;/a&gt;
 
 para css:
 selector{
@@ -88,59 +84,59 @@ codigo de colores css
 https://htmlcolorcodes.com/es/
 
 selectores:
-tipo=>div{}
-clase=>.elemento{}
-id=>#id{}
-atributo=>a[href=""]{}
-universal=>*{}
+tipo=&gt;div{}
+clase=&gt;.elemento{}
+id=&gt;#id{}
+atributo=&gt;a[href=""]{}
+universal=&gt;*{}
 
 selectores combinados
-descendientes=>div p
+descendientes=&gt;div p
 Descendientes: En este selector, el que está más a la izquierda es el selector padre y los que están a su derecha serán los selectores hijos, por ejemplo:
 div .rojito{}
 En este selector, el div es el padre y el .rojito es el hijo. ¿Esto qué significa? Básicamente que este selector va a agarrar cualquier elemento que tenga la clase “rojito”, pero este elemento tiene que estar DENTRO de un div. O sea, si encuentra algún elemento que tenga la clase .rojito, pero este elemento NO está dentro de un div, pues ese elemento NO lo va a agarrar 😄.
 ejemplo: https://codi.link/PGRpdj4NCiAgPHA+SG9sYTwvcD4NCjwvZGl2Pg==%7CZGl2IHB7DQogIGNvbG9yOiByZWQ7DQp9DQpwew0KICBjb2xvcjogYXF1YTsNCn0=%7C
 
-hijo directo=>div > p
+hijo directo=&gt;div &gt; p
 Hijo directo: Este caso es similar al anterior, pero ahora solo agarrará a los hijos que este directamente adentro del padre. Recuerda que en el elemento padre nosotros podemos tener más cajitas con más elementos dentro, en este caso, este selector NO agarrará a esos otros elementos, por ejemplo:
-div > .rojito{}
-Al poner el signo > estoy especificando que quiero seleccionar a cualquier elemento que tenga la clase .rojito, pero este elemento tiene que estar directamente dentro de un <div>.
-<div>
-    <span class="rojito">A si me agarra :)</span>
+div &gt; .rojito{}
+Al poner el signo &gt; estoy especificando que quiero seleccionar a cualquier elemento que tenga la clase .rojito, pero este elemento tiene que estar directamente dentro de un &lt;div&gt;.
+&lt;div&gt;
+    &lt;span class="rojito"&gt;A si me agarra :)&lt;/span&gt;
 
-    <section>
-        <span class="rojito">A mi no me agarra :(</span>
-    </section>
-</div>
-<span class="rojito">A mi tampoco me agarra :(</span>
-En este ejemplo el <span> que está dentro del <section> NO sería seleccionado porque, aunque está dentro del <div> NO está directamente dentro del <div> 😄.
+    &lt;section&gt;
+        &lt;span class="rojito"&gt;A mi no me agarra :(&lt;/span&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+&lt;span class="rojito"&gt;A mi tampoco me agarra :(&lt;/span&gt;
+En este ejemplo el &lt;span&gt; que está dentro del &lt;section&gt; NO sería seleccionado porque, aunque está dentro del &lt;div&gt; NO está directamente dentro del &lt;div&gt; 😄.
 
 ejemplo: https://codi.link/PGRpdj4NCiAgPHA+SG9sYTwvcD4NCiAgICA8cD5Ib2xhPC9wPg0KICAgIDxzcGFuPiAgPHA+SG9sYTwvcD48L3NwYW4+DQo8L2Rpdj4=%7CZGl2ID4gcHsNCiAgY29sb3I6IHJlZDsNCn0NCnB7DQogIGNvbG9yOiBhcXVhOw0KfQ==%7C
 
 
-elemento adyacente=>div + p 
+elemento adyacente=&gt;div + p 
 Elemento adyacente: Básicamente selecciona a la etiqueta que esté debajo de la primera etiqueta 👀.
 p+p{}
-<p>Seleccionara a la de abajo</p>
-<p>El de arriba me selecciono</p>
+&lt;p&gt;Seleccionara a la de abajo&lt;/p&gt;
+&lt;p&gt;El de arriba me selecciono&lt;/p&gt;
 ejemplo: https://codi.link/PHA+SG9sYTwvcD4NCjxwPkhvbGE8L3A+DQo8cD5Ib2xhPC9wPg0KPHA+SG9sYTwvcD4NCjxwPkhvbGE8L3A+%7CcCtwew0KICBjb2xvcjogcmVkDQp9DQpwe2NvbG9yOmFxdWF9%7C
 
-general de hermanos=>div 
+general de hermanos=&gt;div 
 General de hermanos: Es similar al adyacente, pero esta vez no solo selecciona al de abajo, sino a cualquiera que esté al mismo nivel que el selector original, es decir, a sus hermanos
 .
 ¡Y podemos combinar más selectores! OwO. Por ejemplo:
 .
-Puedo seleccionar a todas las etiquetas <p> que estén directamente adentro de cualquier elemento con la clase azulitos y que a su vez, estos elementos sean hermanos de algún elemento con la clase .rojito y que este elemento con la clase .rojito esté dentro de un <div> OwO:
-div .rojito ~ .azulito > p{}
-<div>
-  <p>Este párrafo no es seleccionado</p>
-  <div>
-    <p class="rojito">Este párrafo no es seleccionado</p>
-    <p class="azulito">Este párrafo no es seleccionado</p>
-    <p>Este párrafo no es seleccionado</p>
-    <p class="azulito">Este párrafo es seleccionado</p>
-  </div>
-</div>
+Puedo seleccionar a todas las etiquetas &lt;p&gt; que estén directamente adentro de cualquier elemento con la clase azulitos y que a su vez, estos elementos sean hermanos de algún elemento con la clase .rojito y que este elemento con la clase .rojito esté dentro de un &lt;div&gt; OwO:
+div .rojito ~ .azulito &gt; p{}
+&lt;div&gt;
+  &lt;p&gt;Este párrafo no es seleccionado&lt;/p&gt;
+  &lt;div&gt;
+    &lt;p class="rojito"&gt;Este párrafo no es seleccionado&lt;/p&gt;
+    &lt;p class="azulito"&gt;Este párrafo no es seleccionado&lt;/p&gt;
+    &lt;p&gt;Este párrafo no es seleccionado&lt;/p&gt;
+    &lt;p class="azulito"&gt;Este párrafo es seleccionado&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 ejemplo: https://codi.link/PGRpdj4NCiAgPHA+SG9sYTwvcD4NCjwvZGl2Pg0KPHA+SG9sYTwvcD4=%7CZGl2IH4gcHsNCiAgY29sb3I6IHJlZDsNCn0NCnB7Y29sb3I6IGFxdWE7fQ==%7C
 Este es un selector MUY específico, y podemos ser aún más específicos, pero quiero que veas como podemos empezar a combinar selectores, y muchas veces es más fácil leer estos selectores de derecha a izquierda 😄.
 
@@ -178,9 +174,9 @@ input:in-range + span::after {
 input:out-of-range + span::after {
     content: 'Menor de edad. 🙈';
 }
-<label for="age">Intoduce tu edad y te digo si eres menor o mayor de edad</label>
-<input type="number" name="age" id="age" min="18" max="100" value="14">
-<span>Eres: </span>
+&lt;label for="age"&gt;Intoduce tu edad y te digo si eres menor o mayor de edad&lt;/label&gt;
+&lt;input type="number" name="age" id="age" min="18" max="100" value="14"&gt;
+&lt;span&gt;Eres: &lt;/span&gt;
 Atajo para agregar emoji tecla windows mas la tecla de punto (windows + . )
 
 Pseudoclases
@@ -310,7 +306,7 @@ h1 {
 https://codi.link/PGgxPkNhc2NhZGE8L2gxPg==%7CaDEgew0KICAgIGNvbG9yOiBibGFjayAhaW1wb3J0YW50Ow0KfQ0KDQpoMSB7DQogIGNvbG9yOiByZWQ7DQp9DQoNCg0KaDEgew0KICBjb2xvcjogYmx1ZTsNCn0NCg==%7C
 
 Estilos en línea (mala pracitca)
-<h1 style="color: blue;">Especificidad</h1>
+&lt;h1 style="color: blue;"&gt;Especificidad&lt;/h1&gt;
 https://codi.link/PGgxIHN0eWxlPSJjb2xvcjogYmx1ZTsiPkVzcGVjaWZpY2lkYWQ8L2gxPg0K%7CaDEgew0KICBjb2xvcjogcmVkOw0KfQ0KDQpoMSB7DQogIGNvbG9yOiBncmVlbjsNCn0NCg0K%7C
 
 Especificidad en selectores
@@ -594,7 +590,7 @@ Con medidas relativas, el tamaño cambiará con respecto a la fuente del element
 
 Sin embargo, la medida rem equivale a 16px y puede ser confuso mientras utilices valores altos. Por lo que vamos a cambiar el valor del elemento de la raíz para que la medida rem sea igual a 10px.
 
-En la etiqueta <html> cambia el valor de la propiedad font-size a 62.5%, resultado de una regla de tres: si 16px es igual al 100% entonces cuál será el porcentaje para 10px.
+En la etiqueta &lt;html&gt; cambia el valor de la propiedad font-size a 62.5%, resultado de una regla de tres: si 16px es igual al 100% entonces cuál será el porcentaje para 10px.
 html {
     font-size: 62.5%;
 }//cambio de medida 1rem, con este cambio, la medida rem será igual a 10px
@@ -653,14 +649,14 @@ Las tablets.
 Laptops o computadores de escritorio.
 
 Si tenemos archivos CSS que van a impactar en otros dispositivos con diferente viewport:
-<link rel="stylesheet" href="tablet.css" media="screen and (min-width: 768px)">
-<link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)">
+&lt;link rel="stylesheet" href="tablet.css" media="screen and (min-width: 768px)"&gt;
+&lt;link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)"&gt;
 
 Agregamos el atributo media cuyo valores va a ser el mínimo que necesitamos para hacer ese breakpoint, que es ese cambio en el layout.
 Orden final:
-<link rel="stylesheet" href="style.css"> <!-- Los dispositiivos mobiles -->
-<link rel="stylesheet" href="tablet.css" media="screen and (min-width: 768px)">
-<link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)">
+&lt;link rel="stylesheet" href="style.css"&gt; &lt;!-- Los dispositiivos mobiles --&gt;
+&lt;link rel="stylesheet" href="tablet.css" media="screen and (min-width: 768px)"&gt;
+&lt;link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)"&gt;
 
 revisar de diseño responsive:
 https://miguel-angelrc.github.io/curso-frontend/10_card.html
@@ -761,8 +757,5 @@ https://www.frontendmentor.io/
 algunas preguntas para entrevistas:
 https://github.com/learning-zone/css-basics
 </code></pre>
-
-</div>
-
 </body>
 </html>
