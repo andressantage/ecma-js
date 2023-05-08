@@ -1,0 +1,39 @@
+{
+  "animales": [
+    {
+      "nombreAnimal": "Zeuz",
+      "especie": "Perro",
+      "id": "123"
+    },
+    {
+      "nombreAnimal": "Michi",
+      "especie": "Gato",
+      "id": "321"
+    },
+    {
+      "nombreAnimal": "Rambo",
+      "especie": "Camaleon",
+      "id": "654"
+    },
+    {
+      "nombreAnimal": "Barnabas",
+      "especie": "Tiburon",
+      "id": "987"
+    },
+    {
+      "nombreAnimal": "Pancho",
+      "especie": "Dinosaurio",
+      "id": "741"
+    },
+    {
+      "nombreAnimal": "Pablo",
+      "especie": "Pinguino",
+      "id": "369"
+    },
+    {
+      "nombreAnimal": "Shakira",
+      "especie": "Venado",
+      "id": "852"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Taller | Js</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <div class="formulario">
+            <label for="dinero">Ingrese el monto</label>
+            <input type="number" id="dinero" />
+            <label for="seleccionTipo">Tipo de Transacción</label>
+            <select name="" id="seleccionTipo">
+                <option value="">--Seleccionar--</option>
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Egreso</option>
+            </select>
+            <button type="submit" onclick="recibirDatosTransaccion()">Procesar</button>
+        </div>        
+        <div class="TOTAL">
+            <p id="total"></p>
+        </div>
+        <h2>Ingresos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Fecha</th> 
+                </tr>
+            </thead>
+            <tbody id="tablaIngresos"></tbody>
+        </table>
+
+        <h2>Egresos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody id="tablaEgresos"></tbody>
+        </table>
+    </body>
+
+</html>

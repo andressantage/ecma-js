@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/components/tienda.js" type="module" ></script>
+    <script src="../js/app.js" type="module"></script>
+    <title>CampersEngine</title>
+
+    <link rel="stylesheet" href="/tiendaComida/style.css">
+    
+</head>
+<body>
+    <div class="cart"> 
+        <img   id="carrito" src="../images/cart-regular-24.png" alt="">
+        <span  id="contarProducto"></span>
+    </div>
+   
+<!--     <button class="delete-product"  style="display: none;">X</button>
+    <button class="delete-product"  style="display: none;">X</button> -->
+ 
+    <div class="header">
+
+        <nav-bar-menu></nav-bar-menu>
+       
+        <div class="cart-products"  id="modalCarrito" style="display: none;" >
+           
+                <button class="close-btn" id="closeBtn">X</button>
+                <h3>Mi Carrito</h3>
+                    <div id="modalPapas"  >
+                        
+                    </div>
+
+                    <div id="modalPastel"  >
+                        
+                    </div>
+
+
+                    <div  id="modalCafe" >
+                            
+                    </div> 
+
+                <h4 id="totalCuenta"></h4>
+        </div>
+       
+    </div>
+
+
+       
+        
+        
+
+
+
+ <div class="main">
+   
+    <tienda-main-page></tienda-main-page>
+         
+ </div>
+
+   
+</body>
+</html>

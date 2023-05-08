@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica</title>
+    <script src="main.js" defer></script>
+    <script src="modal.js" defer></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Registra Animales</h1>
+    
+    <form id="myForm">
+        <p class="input-container"><input type="text" class="input-field" name="nombreAnimal" placeholder="Digite el nombre del animal"></p><br>
+        <p class="input-container"><input type="text" class="input-field" name="especie" placeholder="Digite la especie"></p><br>
+        <p class="input-container"><input type="number" min="0" class="input-field" name="id" placeholder="Digite el número para identificarlo"></p><br>
+        <input class="botones" type="submit" data-accion="GUARDAR" value="Guardar">
+        <input class="botones" type="submit" data-accion="ACTUALIZAR" value="Actualizar">
+        <input class="botones" type="submit" data-accion="ELIMINAR" value="Eliminar">
+        <input class="botones" type="submit" data-accion="BUSCAR" value="Buscar" id="open">
+    </form>
+    <div class="modal-container" id="modal-container">
+        <div class="modal">
+            <div id="remplazo">         
+            </div>
+            <button id="close" class="botones">Cerrar</button>
+        </div>
+    </div>
+</body>
+    <div id="acom">
+        <h1>Animales</h1>
+        <table id="asom">
+        </table>
+    </div>
+</html>
