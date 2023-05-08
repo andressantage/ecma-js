@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de creaciĂłn de fragmento con JavaScript</title>
+</head>
+<body>
+    
+	<script>
+		// Creamos un nuevo fragmento
+		var fragmento = document.createDocumentFragment();
+		// Creamos un nuevo elemento
+		var nuevoParrafo = document.createElement("p");
+		nuevoParrafo.textContent = "Parrafo creado con JS y primer fragmento";
+		// Agregamos el nuevo elemento al fragmento
+		fragmento.appendChild(nuevoParrafo);
+		// Agregamos el fragmento al cuerpo del documento
+		document.body.appendChild(fragmento);
+
+        
+        // Creacion de otro fragmento
+		var fragmento1 = document.createDocumentFragment();
+        // Creamos un nuevo elemento
+        var nuevoParrafo1 = document.createElement("p");
+        nuevoParrafo1.textContent = "Parrafo creado con JS y segundo fragmento";
+        // Agregamos el nuevo elemento al fragmento
+        fragmento1.appendChild(nuevoParrafo1);
+        // Agregamos el fragmento al cuerpo del documento
+        document.body.appendChild(fragmento1);
+	</script>
+</body>
+</html>

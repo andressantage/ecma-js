@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+button {
+    color: #1a73e8;
+}
+button:active {/* al dar click se activa debido al 'active' el color a amarillo */
+    color: yellow;
+}
+
+p::before {/* se pone textio al antes del texto que este ahi */
+    content: "✨";
+}
+p:hover::after {/* se agrega texto al estar encima debido al 'hover' y despues debido al 'after' */
+    content: "💅";
+}
+
+input:in-range {
+    background-color: rgba(114, 245, 114, 0.25);
+}
+input:out-of-range {
+    background-color: rgba(245, 128, 128, 0.25);
+    border: 2px solid red;
+}
+input:in-range + span::after {
+    content: 'Mayor de edad. 🚀';
+}
+input:out-of-range + span::after {
+    content: 'Menor de edad. 🙈';
+}
+
+div p:nth-child(2){/* aplica estilo solo al 'p' numero 2 que esta dentro del div */
+    color:blue;
+}
+
+h1::first-letter{
+    color:red;
+}
+    </style>
+</head>
+<body>
+    <button>Da click</button>
+    <p>Hola</p>
+    
+<label for="age">Intoduce tu edad y te digo si eres menor o mayor de edad</label>
+<input type="number" name="age" id="age" min="18" max="100" value="14">
+<span>Eres: </span>
+
+<div>
+    <p>aaaaaaaaaa</p>
+    <p>bbbbbbbbbbbbb</p>
+    <p>cccccccccccc</p>
+</div>
+
+<h1>Sabiendo</h1>
+</body>
+</html>

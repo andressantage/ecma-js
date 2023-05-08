@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e9965fabc7.js" crossorigin="anonymous"></script>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cont1{
+    width: 100%;
+    height: 300px;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#ingreso{
+    background-color: green;
+}
+#egreso{
+    background-color: orangered;
+}
+.cont2{
+    background-color: rgb(184, 182, 182);
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#numero{
+    width: 60px;
+    height: 40px;
+    margin: 5px;
+}
+#cuenta{
+    width: 200px;
+    height: 40px;
+    margin: 5px;
+}
+#lista{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.cont3{
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    align-items: flex-start;
+}
+.cont3 .item{
+    width: 25%;
+    margin: 20px;
+    margin-top: 0;
+}
+.i{
+    color: green;
+    font-weight: 100;
+    margin:0px;
+    text-align: left;
+}
+.e{
+    color: red;
+    font-weight: 100;
+}
+.cont4{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.a2{
+    text-align: right;
+}
+
+.cont5{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+}
+.cont5 .item{
+    width: 25%;
+    margin: 10px;
+}
+
+.k1{
+    width: 350px;
+    height: 40px;    
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
+    background-color: green;
+}
+.k2{
+    width: 350px;
+    height: 40px;    
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 5px;
+    background-color: orangered;
+}
+
+.fa-solid{
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+}
+</style>
+</head>
+<body>
+<div class="cont1">
+
+    <h1>Presupuesto Disponible</h1>
+
+    <h1 id="presupuesto">0</h1>
+
+    <div class="k1">
+        <h1>INGRESOS</h1><h1 id="ingreso">$0.00</h1>
+    </div>
+    <div class="k2">
+        <h1>EGRESOS</h1><h1 id="egreso">$0.00</h1>
+    </div>
+
+</div>
+
+<div class="cont2">
+    <select name="autos" id="lista">
+        <option value="+">+</option>
+        <option value="-">-</option>
+    </select>
+
+    <input type="text" id="cuenta" placeholder="Ingresar tipo">
+    
+    <input type="number" name="spinner" id="numero" min="0" step="1">
+
+    <div>
+        <i class="fa-solid fa-check" style="color: #26a269;"></i>
+        <!-- <span style='font-size:35px;'>&#9989;</span> -->
+    </div>
+
+</div>
+
+<div class="cont5">
+    <h1 class="i item">INGRESOS</h1>
+    <h1 class="e item">EGRESOS</h1>
+</div>
+
+
+<div class="cont3">
+    <div class="item">
+        <div id="ca" class="cont4">
+        </div>
+    </div>
+    <div class="item">
+        <div id="cb" class="cont4">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var presupuesto=document.getElementById("presupuesto")
+    var ingreso=document.getElementById("ingreso")
+    var egreso=document.getElementById("egreso")
+
+    var ca=document.getElementById("ca")
+    var cb=document.getElementById("cb")
+
+    var cuenta=document.getElementById("cuenta")
+    var numero=document.getElementById("numero")
+    var e=document.getElementById("e")
+    var img=document.querySelector("span")
+
+    var a1=document.querySelectorAll(".a1")
+    var a2=document.querySelectorAll(".a2")
+
+    var b1=document.querySelectorAll(".b1")
+    var b2=document.querySelectorAll(".b2")
+
+    if(!localStorage.getItem("x")){
+        localStorage.setItem("x", '')
+        localStorage.setItem("sumaX", '0')
+    }else{
+        var x=localStorage.getItem("x")
+        ca.innerHTML=localStorage.getItem("x")
+
+        var sumaX=parseFloat(localStorage.getItem("sumaX"))
+        ingreso.innerHTML=sumaX
+    }
+
+    if(!localStorage.getItem("y")){
+        localStorage.setItem("y", '')
+        localStorage.setItem("sumaY", '0')   
+    }else{
+        var y=localStorage.getItem("y")
+        cb.innerHTML=localStorage.getItem("y")
+
+        var sumaY=parseFloat(localStorage.getItem("sumaY"))
+        egreso.innerHTML=sumaY
+    }
+
+    presupuesto.innerHTML=parseFloat(localStorage.getItem("sumaY"))+parseFloat(localStorage.getItem("sumaX"))
+
+    img.addEventListener("click",f);
+    function f(){
+        var lista=document.getElementById("lista")
+        if(lista.value=='+'){
+            var x1=cuenta.value
+            var x2=numero.value
+            if(!x){
+                sumaX=parseFloat(x2)
+                x='<p class="a1">'+x1+'</p><p class="a2">'+x2+'</p>'
+            }else{
+                sumaX+=parseFloat(x2)
+                x=x+'<p class="a1">'+x1+'</p><p class="a2">'+x2+'</p>'
+            }
+            ingreso.innerHTML=sumaX
+            ca.innerHTML=x
+            localStorage.setItem("sumaX",sumaX)
+            localStorage.setItem("x",x)
+        }
+
+        else if(lista.value=='-'){
+            var y1=cuenta.value
+            var y2=numero.value
+            if(!y){
+                sumaY=parseFloat(y2)
+                y='<p class="b1">'+y1+'</p><p class="b2">'+y2+'</p>'
+            }else{
+                sumaY+=parseFloat(y2)
+                y=y+'<p class="b1">'+y1+'</p><p class="b2">'+y2+'</p>'
+            }
+            egreso.innerHTML=sumaY
+            cb.innerHTML=y
+            localStorage.setItem("sumaY",sumaY)
+            localStorage.setItem("y",y)
+        }
+        presupuesto.innerHTML=sumaX+sumaY
+    }
+    
+</script>
+
+</body>
+</html>

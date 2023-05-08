@@ -1,0 +1,82 @@
+La programación orientada a objetos tiene cuatro características principales:
+Encapsulamiento. Quiere decir que oculta datos mediante código.
+Abstracción. Es como se pueden representar los objetos en modo de código.
+Herencia. Es donde una clase nueva se crea a partir de una clase existente.
+Polimorfismo. Se refiere a la propiedad por la que es posible enviar mensajes sintácticamente iguales a objetos de tipos distintos.
+En este curso, los pasos a seguir será.
+Analisis
+Plasmar
+Programar
+
+¿Qué resuelve la Programación Orientada a Objetos?
+La programación Orientada a Objetos nace de los problemas creados por la programación estructurada y nos ayuda a resolver cierto problemas como:
+Código muy largo: A medida que un sistema va creciendo y se hace más robusta el código generado se vuelve muy extenso haciéndose difícil de leer, depurar, mantener.
+Si algo falla, todo se rompe: Ya que con la programación estructurada el código se ejecuta secuencialmente al momento de que una de esas líneas fallara todo lo demás deja de funcionar.
+Difícil de mantener.
+
+Paradigma Orientado a Objetos POO
+viene de una filosofía o forma de pensar que es la Orientación a Objetos y esto surge a partir de los problemas que necesitamos plasmar en código.
+
+Es analizar un problema en forma de objetos para después llevarlo a código, eso es la Orientación a Objetos.
+se compone de 4 elementos:
+Clases
+Propiedades
+Métodos
+Objetos
+y 4 pilares:
+Encapsulamiento
+Abstracción
+Herencia
+Polimorfismo
+
+Lenguajes Orientados a Objetos
+Algunos de los lenguajes de programación Orientados a Objetos son:
+
+Java:
+– Orientado a Objetos naturalmente
+– Es muy utilizado en Android
+– Y es usado del lado del servidor o Server Side
+PHP
+– Lenguaje interpretado
+– Pensado para la Web
+Python
+– Diseñado para ser fácil de usar
+– Múltiples usos: Web, Server Side, Análisis de Datos, Machine Learning, etc
+Javascript
+– Lenguaje interpretado
+– Orientado a Objetos pero basado en prototipos
+– Pensado para la Web
+C#
+Ruby
+Kotlin
+
+Extensiones de VSC para POO
+- Java Extension Pack
+- Debugger for Java
+- PHP Server 
+descargar para PHP:
+xampp: https://www.apachefriends.org/es/index.html
+configurar en VSC para php:
+1. ir a settings
+2. buscar PHP Server
+3. escribir las extensiones:
+En el apartado Phpserver: PHP Config Path debe decir: C:\xampp\php\php.ini.
+En el apartado Phpserver: PHP Path debe decir: C:\xampp\php\php.exe.
+//OJO las extensiones pueden variar segun donde este xampp
+Si para terminar de configurar Python no les carga la opcion: >python: Seleccionar intérprete
+Pueden probar:
+Descargando en VS “Python” como hicimos con los demas lenguajes.
+Una vez ya instalada la extensión desde el MarketPlace de VS, vamos View -> Command Palette y volvemos a escribir >python: Seleccionar intérprete
+Y despues seleccionar la opcion Python 3.8.3 32-bit
+
+Diagramas de Modelado
+OMT: Object Modeling Techniques. Es una metodología para el análisis orientado a objetos.
+UML: Unified Modeling Language o Lenguaje de Modelado Unificado. Tomó las bases y técnicas de OMT unificándolas. Tenemos más opciones de diagramas como lo son Clases, Casos de Uso, Objetos, Actividades, Iteración, Estados, Implementación.
+
+Objetos: aquellos que tienen propiedades, comportamientos y sustantivos
+pueden ser:
+- fisicos
+- conceptuales
+
+Propiedades: pueden llamarse atributos y estos también serán sustantivos. Algunos atributos o propiedades son nombre, tamaño, forma, estado, etc. Son todas las características del objeto.
+Comportamientos: serán todas las operaciones que el objeto puede hacer, suelen ser verbos o sustantivos y verbo. Algunos ejemplos pueden ser que el usuario pueda hacer login y logout.

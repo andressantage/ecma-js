@@ -1,0 +1,743 @@
+Layout
+Cuando hablamos de layout estamos hablando del diseño de nuestra página.
+Las etiquetas que utilizamos aquí son la base en donde van a ir todo el contenido.
+todas las etiquetas:
+http://htmlreference.io/
+
+etiquetas mas importantes: 
+https://platzi.com/blog/etiquetas-html-debes-conocer/
+
+Enlaces
+Vamos a poder colocar diferentes links o enlaces para que el usuario le dé click o tap y que nos redirija hacia otro lugar.
+
+Textos
+h1…h6
+Nos indica la importancia de diferentes textos desde el más importante (h1) hasta el menos importante (h6).
+
+p
+Lo usamos para estructurar párrafos.
+
+span
+Semánticamente no tiene ningún significado al igual que div, es un comodín, pero nos ayuda diferenciar cierto texto dentro de un párrafo.
+
+Formularios
+form
+Es el lugar donde va a ir todo nuestro formulario.
+
+input
+Hay muchos tipos de inputs.
+
+label
+Es el texto que nos indica que tenemos que hacer con cierto input en particular.
+
+button
+Nos permite enviar los formularios y hacen parte de otras partes de nuestra página si queremos.
+
+&lt;b&gt;: Pone tu texto en negritas (pero esta etiqueta NO tiene sentido semántico).
+&lt;strong&gt;: También pone tu texto en negrita, pero esta SÍ tiene sentido semántico (Google le da relevancia al texto que pongas ahí).
+&lt;i&gt;: Pone tu texto en cursivas (pero esta etiqueta NO tiene sentido semántico).
+&lt;em&gt;: También pone tu texto en cursivas, pero esta SÍ tiene sentido semántico (Google le da relevancia al texto que pongas ahí).
+&lt;br&gt;: Hace un salto de línea, funciona como si diéramos un enter con el teclado 
+
+para hacer listas:
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+para formularios:
+&lt;form action=""&gt;
+    &lt;label for="name"&gt;Nombre&lt;/label&gt;
+    &lt;input type="text" id="name"&gt;
+&lt;/form&gt;
+
+para enlaces:
+&lt;a href="LINK"&gt;Aqui&lt;/a&gt;
+
+para css:
+selector{
+    propiedad: valor;
+}
+
+codigo de colores css
+https://htmlcolorcodes.com/es/
+
+selectores:
+tipo=&gt;div{}
+clase=&gt;.elemento{}
+id=&gt;#id{}
+atributo=&gt;a[href=""]{}
+universal=&gt;*{}
+
+selectores combinados
+descendientes=&gt;div p
+Descendientes: En este selector, el que está más a la izquierda es el selector padre y los que están a su derecha serán los selectores hijos, por ejemplo:
+div .rojito{}
+En este selector, el div es el padre y el .rojito es el hijo. ¿Esto qué significa? Básicamente que este selector va a agarrar cualquier elemento que tenga la clase “rojito”, pero este elemento tiene que estar DENTRO de un div. O sea, si encuentra algún elemento que tenga la clase .rojito, pero este elemento NO está dentro de un div, pues ese elemento NO lo va a agarrar 😄.
+ejemplo: https://codi.link/PGRpdj4NCiAgPHA+SG9sYTwvcD4NCjwvZGl2Pg==%7CZGl2IHB7DQogIGNvbG9yOiByZWQ7DQp9DQpwew0KICBjb2xvcjogYXF1YTsNCn0=%7C
+
+hijo directo=&gt;div &gt; p
+Hijo directo: Este caso es similar al anterior, pero ahora solo agarrará a los hijos que este directamente adentro del padre. Recuerda que en el elemento padre nosotros podemos tener más cajitas con más elementos dentro, en este caso, este selector NO agarrará a esos otros elementos, por ejemplo:
+div &gt; .rojito{}
+Al poner el signo &gt; estoy especificando que quiero seleccionar a cualquier elemento que tenga la clase .rojito, pero este elemento tiene que estar directamente dentro de un &lt;div&gt;.
+&lt;div&gt;
+    &lt;span class="rojito"&gt;A si me agarra :)&lt;/span&gt;
+
+    &lt;section&gt;
+        &lt;span class="rojito"&gt;A mi no me agarra :(&lt;/span&gt;
+    &lt;/section&gt;
+&lt;/div&gt;
+&lt;span class="rojito"&gt;A mi tampoco me agarra :(&lt;/span&gt;
+En este ejemplo el &lt;span&gt; que está dentro del &lt;section&gt; NO sería seleccionado porque, aunque está dentro del &lt;div&gt; NO está directamente dentro del &lt;div&gt; 😄.
+
+ejemplo: https://codi.link/PGRpdj4NCiAgPHA+SG9sYTwvcD4NCiAgICA8cD5Ib2xhPC9wPg0KICAgIDxzcGFuPiAgPHA+SG9sYTwvcD48L3NwYW4+DQo8L2Rpdj4=%7CZGl2ID4gcHsNCiAgY29sb3I6IHJlZDsNCn0NCnB7DQogIGNvbG9yOiBhcXVhOw0KfQ==%7C
+
+
+elemento adyacente=&gt;div + p 
+Elemento adyacente: Básicamente selecciona a la etiqueta que esté debajo de la primera etiqueta 👀.
+p+p{}
+&lt;p&gt;Seleccionara a la de abajo&lt;/p&gt;
+&lt;p&gt;El de arriba me selecciono&lt;/p&gt;
+ejemplo: https://codi.link/PHA+SG9sYTwvcD4NCjxwPkhvbGE8L3A+DQo8cD5Ib2xhPC9wPg0KPHA+SG9sYTwvcD4NCjxwPkhvbGE8L3A+%7CcCtwew0KICBjb2xvcjogcmVkDQp9DQpwe2NvbG9yOmFxdWF9%7C
+
+general de hermanos=&gt;div 
+General de hermanos: Es similar al adyacente, pero esta vez no solo selecciona al de abajo, sino a cualquiera que esté al mismo nivel que el selector original, es decir, a sus hermanos
+.
+¡Y podemos combinar más selectores! OwO. Por ejemplo:
+.
+Puedo seleccionar a todas las etiquetas &lt;p&gt; que estén directamente adentro de cualquier elemento con la clase azulitos y que a su vez, estos elementos sean hermanos de algún elemento con la clase .rojito y que este elemento con la clase .rojito esté dentro de un &lt;div&gt; OwO:
+div .rojito ~ .azulito &gt; p{}
+&lt;div&gt;
+  &lt;p&gt;Este párrafo no es seleccionado&lt;/p&gt;
+  &lt;div&gt;
+    &lt;p class="rojito"&gt;Este párrafo no es seleccionado&lt;/p&gt;
+    &lt;p class="azulito"&gt;Este párrafo no es seleccionado&lt;/p&gt;
+    &lt;p&gt;Este párrafo no es seleccionado&lt;/p&gt;
+    &lt;p class="azulito"&gt;Este párrafo es seleccionado&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+ejemplo: https://codi.link/PGRpdj4NCiAgPHA+SG9sYTwvcD4NCjwvZGl2Pg0KPHA+SG9sYTwvcD4=%7CZGl2IH4gcHsNCiAgY29sb3I6IHJlZDsNCn0NCnB7Y29sb3I6IGFxdWE7fQ==%7C
+Este es un selector MUY específico, y podemos ser aún más específicos, pero quiero que veas como podemos empezar a combinar selectores, y muchas veces es más fácil leer estos selectores de derecha a izquierda 😄.
+
+También podemos ver a las pseudoclases como estados de algún elemento (con el mouse encima, visitado, activo, etc.) y a los pseudoelementos como elementos que escribimos desde CSS, por ejemplo, el ::after y el ::before nos puedes funcionar como divs, como su nombre lo dice, son elementos, pero no necesariamente están escritos desde el HTML
+Gracias a las pseudoclases podemos cambiar los estilos de algún elemento cuando sucede algo, por ejemplo, cuando un botón está siendo clicado se activa el pseudoelemento active, entonces nosotros desde CSS podemos cambiar el color del botón a un color más oscuro para dar ese efecto de clicado 😄:
+button {
+    color: #1a73e8;
+}
+button:active {
+    color: #1557ad;
+}
+Un dato curioso es que también podemos escribir colores usando código hexadecimal como en este caso 👀. Y ahora que ya sabes esto, ¡también podemos combinar pseudoelementos con pseudoclases! Por ejemplo, con el ejemplo de la profesora tenemos esto:
+p::before {
+    content: "✨";
+}
+Pero también podríamos agregarle un :hover y cambiar su contenido 👀👇:
+p::before {
+    content: "✨";
+}
+p:hover::before {
+    content: "💅";
+}
+
+Con la pseudo-clases :in-range y :ut-of-range podemos validar si un valor está dentro de un rango y estilizar dependiendo de la validación, por ejemplo:
+input:in-range {
+    background-color: rgba(114, 245, 114, 0.25);
+}
+input:out-of-range {
+    background-color: rgba(245, 128, 128, 0.25);
+    border: 2px solid red;
+}
+input:in-range + span::after {
+    content: 'Mayor de edad. 🚀';
+}
+input:out-of-range + span::after {
+    content: 'Menor de edad. 🙈';
+}
+&lt;label for="age"&gt;Intoduce tu edad y te digo si eres menor o mayor de edad&lt;/label&gt;
+&lt;input type="number" name="age" id="age" min="18" max="100" value="14"&gt;
+&lt;span&gt;Eres: &lt;/span&gt;
+Atajo para agregar emoji tecla windows mas la tecla de punto (windows + . )
+
+Pseudoclases
+Las pseudoclases nos permite llegar a aquellas acciones que hace el usuario.
+:active
+:focus
+:hover
+:nth-child(n)
+https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes
+
+:hover
+Representa el estado en el cual el cursor está encima del elemento.
+https://codi.link/PGRpdj5TZcOxw6FsYW1lPC9kaXY+%7CZGl2IHsNCiAgZm9udC1zaXplOiAzcmVtOw0KICBjdXJzb3I6IHBvaW50ZXI7DQp9DQoNCmRpdjpob3ZlciB7DQogIGNvbG9yOiByZWQ7DQp9%7C
+
+:active
+Representa el estado de un elemento que no ha sido visitado.
+https://codi.link/PGEgaHJlZj0iIyI+Q2xpY2tlYW1lPC9hPg==%7CYSB7DQogIGZvbnQtc2l6ZTogM3JlbTsNCn0NCg0KYTpsaW5rIHsNCiAgY29sb3I6IHJlZDsNCn0=%7C
+
+:visited
+Representa el estado de un elemento que ya ha sido visitado.
+https://codi.link/PGEgaHJlZj0iIyI+Q2xpY2tlYW1lPC9hPg==%7CYSB7DQogIGZvbnQtc2l6ZTogM3JlbTsNCn0NCg0KYTp2aXNpdGVkIHsNCiAgY29sb3I6IHJlZDsNCn0=%7C
+
+:not()
+Representa el estado en el cual no coinciden los selectores que se indiquen.
+https://codi.link/PGRpdj5BenVsPC9kaXY+DQo8ZGl2PkF6dWw8L2Rpdj4NCjxkaXYgY2xhc3M9Im5lZ3JvIj5OZWdybzwvZGl2Pg0KPGRpdj5BenVsPC9kaXY+DQo8ZGl2PkF6dWw8L2Rpdj4=%7CZGl2IHsNCiAgZm9udC1zaXplOiAzcmVtOw0KfQ0KDQpkaXY6bm90KC5uZWdybykgew0KICBjb2xvcjogYmx1ZTsNCn0=%7C
+
+:nth-child()
+Representa el estado en el cual coinciden los hijos del elemento según el valor indicado.
+https://codi.link/PGRpdj4xIE5lZ3JvPC9kaXY+DQo8ZGl2PjIgQXp1bDwvZGl2Pg0KPGRpdj4zIE5lZ3JvPC9kaXY+DQo8ZGl2PjQgTmVncm88L2Rpdj4NCjxkaXY+NSBOZWdybzwvZGl2Pg==%7CZGl2IHsNCiAgZm9udC1zaXplOiAzcmVtOw0KfQ0KDQpkaXY6bnRoLWNoaWxkKDIpIHsNCiAgY29sb3I6IGJsdWU7DQp9%7C
+
+Valores de palabras clave:
+
+odd: los elementos hijos en posiciones impares.
+even: los elementos hijos en posiciones pares.
+Fórmula matemática: An+B donde A y B son números enteros.
+
+Ejemplo:
+
+:hover
+Al momento de pasar nuestro mouse sobre un elemento va a pasar algo.
+
+:nth-child(n)
+Se le aplica los estilos al elemento número n.
+
+Pseudoelementos
+Los pseudoelementos nos permiten acceder a elementos de HTML que no son accesibles con los selectores ya vistos.
+::after
+::before
+::first-letter
+::placeholder
+https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements
+
+::before
+Sirve para agregar un contenido antes del elemento. El contenido es agregado mediante la propiedad content de CSS.
+https://codi.link/PGgxPlTDrXR1bG88L2gxPg0KPGgyPlN1YnTDrXR1bG9zPC9oMj4NCjxoMj5TdWJ0w610dWxvczwvaDI+DQo8aDI+U3VidMOtdHVsb3M8L2gyPg0KPGgyPlN1YnTDrXR1bG9zPC9oMj4NCjxoMj5TdWJ0w610dWxvczwvaDI+DQo=%7CaDI6YmVmb3JlIHsNCiAgY29udGVudDogIiAqICI7DQogIGNvbG9yOiByZWQ7DQp9%7C
+
+::after
+Sirve para agregar un contenido después del elemento. El contenido es agregado mediante la propiedad content de CSS.
+https://codi.link/PCEtLSBOYXZiYXIgaW1wcm92aXNhZGEgLS0+DQo8bmF2Pg0KICA8dWw+DQogICAgPGxpPkhvbWU8L2xpPg0KICAgIDxsaT5EZXN0YWNhZG9zPC9saT4NCiAgICA8bGk+RWxlbWVudG9zPC9saT4NCiAgICA8bGk+Q2xhc2VzPC9saT4NCiAgICA8bGk+TcOhcy4uLjwvbGk+DQogIDwvdWw+DQo8L25hdj4NCg==%7CbmF2IHVsIHsNCiAgbGlzdC1zdHlsZTogbm9uZTsNCiAgZGlzcGxheTogZmxleDsNCiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7DQogIGN1cnNvcjogcG9pbnRlcjsNCn0NCg0KbmF2IHVsIGxpOjphZnRlciB7DQogIGNvbnRlbnQ6ICJ8IjsNCiAgbWFyZ2luOiAxcmVtOw0KICBjb2xvcjogcmVkOw0KfQ==%7C
+
+::first-letter
+Sirve para añadir estilos a a la primera letra del texto de cualquier elemento.
+https://codi.link/PHA+U295IG90cm8gcMOhcnJhZm88L3A+DQo8cD5Tb3kgb3RybyBww6FycmFmbzwvcD4NCjxwPlNveSBvdHJvIHDDoXJyYWZvPC9wPg0KPHA+U295IG90cm8gcMOhcnJhZm88L3A+DQo8cD5Tb3kgb3RybyBww6FycmFmbzwvcD4NCjxwPlNveSBvdHJvIHDDoXJyYWZvPC9wPg0KPHA+U295IG90cm8gcMOhcnJhZm88L3A+DQo8cD5Tb3kgb3RybyBww6FycmFmbzwvcD4NCjxwPlNveSBvdHJvIHDDoXJyYWZvPC9wPg0K%7COjpmaXJzdC1sZXR0ZXJ7DQogIGNvbG9yOiByZWQ7DQp9DQo=%7C
+
+::fisrt-letter
+Aplica estilos a la primera letra de un texto.
+
+::before
+Aplica estilos o contenido al inicio de nuestro elemento.
+
+::after
+Aplica estilos o contenido al final de nuestro elemento.
+
+https://codi.link/ICAgIDxidXR0b24+RGEgY2xpY2s8L2J1dHRvbj4NCiAgICA8cD5Ib2xhPC9wPg0KICAgIA0KPGxhYmVsIGZvcj0iYWdlIj5JbnRvZHVjZSB0dSBlZGFkIHkgdGUgZGlnbyBzaSBlcmVzIG1lbm9yIG8gbWF5b3IgZGUgZWRhZDwvbGFiZWw+DQo8aW5wdXQgdHlwZT0ibnVtYmVyIiBuYW1lPSJhZ2UiIGlkPSJhZ2UiIG1pbj0iMTgiIG1heD0iMTAwIiB2YWx1ZT0iMTQiPg0KPHNwYW4+RXJlczogPC9zcGFuPg0KDQo8ZGl2Pg0KICAgIDxwPmFhYWFhYWFhYWE8L3A+DQogICAgPHA+YmJiYmJiYmJiYmJiYjwvcD4NCiAgICA8cD5jY2NjY2NjY2NjY2M8L3A+DQo8L2Rpdj4NCg0KPGgxPlNhYmllbmRvPC9oMT4NCg0KPGlucHV0IHR5cGU9InRleHQiIHBsYWNlaG9sZGVyPSJub21icmUiPg==%7CYnV0dG9uIHsNCiAgICBjb2xvcjogIzFhNzNlODsNCn0NCmJ1dHRvbjphY3RpdmUgey8qIGFsIGRhciBjbGljayBzZSBhY3RpdmEgZGViaWRvIGFsICdhY3RpdmUnIGVsIGNvbG9yIGEgYW1hcmlsbG8gKi8NCiAgICBjb2xvcjogeWVsbG93Ow0KfQ0KDQpwOjpiZWZvcmUgey8qIHNlIHBvbmUgdGV4dGlvIGFsIGFudGVzIGRlbCB0ZXh0byBxdWUgZXN0ZSBhaGkgKi8NCiAgICBjb250ZW50OiAi4pyoIjsNCn0NCnA6aG92ZXI6OmFmdGVyIHsvKiBzZSBhZ3JlZ2EgdGV4dG8gYWwgZXN0YXIgZW5jaW1hIGRlYmlkbyBhbCAnaG92ZXInIHkgZGVzcHVlcyBkZWJpZG8gYWwgJ2FmdGVyJyAqLw0KICAgIGNvbnRlbnQ6ICLwn5KFIjsNCn0NCg0KaW5wdXQ6aW4tcmFuZ2Ugew0KICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTE0LCAyNDUsIDExNCwgMC4yNSk7DQp9DQppbnB1dDpvdXQtb2YtcmFuZ2Ugew0KICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjQ1LCAxMjgsIDEyOCwgMC4yNSk7DQogICAgYm9yZGVyOiAycHggc29saWQgcmVkOw0KfQ0KaW5wdXQ6aW4tcmFuZ2UgKyBzcGFuOjphZnRlciB7DQogICAgY29udGVudDogJ01heW9yIGRlIGVkYWQuIPCfmoAnOw0KfQ0KaW5wdXQ6b3V0LW9mLXJhbmdlICsgc3Bhbjo6YWZ0ZXIgew0KICAgIGNvbnRlbnQ6ICdNZW5vciBkZSBlZGFkLiDwn5mIJzsNCn0NCg0KZGl2IHA6bnRoLWNoaWxkKDIpey8qIGFwbGljYSBlc3RpbG8gc29sbyBhbCAncCcgbnVtZXJvIDIgcXVlIGVzdGEgZGVudHJvIGRlbCBkaXYgKi8NCiAgICBjb2xvcjpibHVlOw0KfQ0KDQpoMTo6Zmlyc3QtbGV0dGVyew0KICAgIGNvbG9yOnJlZDsNCn0NCg0KOjpwbGFjZWhvbGRlcnsNCiAgY29sb3I6cmdiKDAsIDI1NSwgMTE1KTsNCn0=%7C
+
+para practicar ya que todo esta en una misma pagina:
+https://flukeout.github.io/
+
+Cascada y especifidad:
+
+Qué es la cascada en CSS
+La cascada es el concepto que determina qué estilos se colocan sobre otros, priorizando a aquellos que se encuentren más abajo del código. Recordarás que CSS es la abreviación de Cascade Style Sheets, que traducido es hojas de estilos en Cascada.
+h1 {
+    color: red;
+}
+h1 {
+    color: blue;
+}
+//en este caso h1 se pintara de blue
+https://codi.link/PGgxPkNhc2NhZGE8L2gxPg==%7CaDEgew0KICBjb2xvcjogcmVkOw0KfQ0KDQpoMSB7DQogIGNvbG9yOiBibHVlOw0KfQ==%7C
+
+Qué es especificidad en CSS
+La especificidad consiste en dar un valor a una regla CSS sobre qué tan específico es el estilo, esto para que los navegadores puedan saber qué estilos aplicar sobre otros, independientemente de dónde se encuentren en el código. El estilo se aplicará donde la especificidad sea mayor.
+
+
+Tipos de especificidad en CSS
+nivel de especifidad (es decir que cosas corre primero)
+xooooo 1.!important
+xooo 2.estilos en linea
+xoo 3.#id
+xo 4.clases, atributos y pseudoclases
+x 5.elementos y pseudoelementos
+o 6.selector universal
+en x va rl numero en o va cero
+
+#id h1::first-letter
+ 100 #id
++  1 h1
+   1 ::first-letter
+_____
+ 102 mas especifico
+
+p .sidemenu div:hover
+   1 p
++ 10 .sidemenu
+   1 div
+  10 :hover 
+_____
+  22 menos especifico
+
+ ganara el de arriba por ser mas especifico
+
+!important: (es una mala practica mejor no usarlo)
+h1 {
+    color: red !important;
+}
+https://codi.link/PGgxPkNhc2NhZGE8L2gxPg==%7CaDEgew0KICAgIGNvbG9yOiBibGFjayAhaW1wb3J0YW50Ow0KfQ0KDQpoMSB7DQogIGNvbG9yOiByZWQ7DQp9DQoNCg0KaDEgew0KICBjb2xvcjogYmx1ZTsNCn0NCg==%7C
+
+Estilos en línea (mala pracitca)
+&lt;h1 style="color: blue;"&gt;Especificidad&lt;/h1&gt;
+https://codi.link/PGgxIHN0eWxlPSJjb2xvcjogYmx1ZTsiPkVzcGVjaWZpY2lkYWQ8L2gxPg0K%7CaDEgew0KICBjb2xvcjogcmVkOw0KfQ0KDQpoMSB7DQogIGNvbG9yOiBncmVlbjsNCn0NCg0K%7C
+
+Especificidad en selectores
+Para trabajar únicamente con la especificidad de los selectores. Sin embargo, debes tener presente que los selectores combinadores suman la especificidad de cada selector básico para obtener la especificidad total de la regla CSS.
+Si utilizas Visual Studio Code y mantienes el mouse sobre el selector, te mostrará la especificidad total
+
+calculadora de especifidad: https://specificity.keegan.st/
+
+Tipos de display más usados: block, inline e inline-block
+
+La propiedad display establece el tipo de visualización de los elementos HTML sin afectar el flujo normal de los elementos.
+display: tipo de visualizacion que tienen los elementos
+
+hay etiquetas que tienen ya un tipo de display predefonido por ejemplo:
+
+button es 'inline'
+aside es 'block'
+puedes revisar mas: https://htmlreference.io/
+ejercicio:
+https://codi.link/PGJvZHk+DQogIDxkaXY+YmxvcXVlPC9kaXY+DQogIDxhIGhyZWY9Ii8iPmlubGluZTwvYT4NCiAgPGJ1dHRvbj5pbmxpbmUgYmxvY2s8L2J1dHRvbj4NCjwvYm9keT4=%7CYm9keXsNCiAgbWFyZ2luOjA7DQp9DQpkaXZ7DQogIGJhY2tncm91bmQtY29sb3I6IHNhbG1vbjsNCiAgd2lkdGg6MjAwcHg7DQogIGhlaWdodDoyMDBweDsNCiAgbWFyZ2luOiAyMHB4OzsNCn0NCmF7DQogIGJhY2tncm91bmQtY29sb3I6IGFxdWE7DQogIHdpZHRoOjIwMHB4Ow0KICBoZWlnaHQ6MjAwcHg7DQogIG1hcmdpbjogMjBweDsNCn0NCmJ1dHRvbnsNCmJhY2tncm91bmQtY29sb3I6IHJlZDsNCiAgd2lkdGg6MjAwcHg7DQogIGhlaWdodDoyMDBweDsNCg0KfQ0K%7C
+
+al darle inspeccionar a una pagina puedes observar otros detalles:
+por ejemplo al ponerse encima de un elemento del html se puede revisar ciertas caracteristicas
+que posiblemente no se vean en el documento html
+
+block:
+El display block **establece que un elemento ocupará todo el espacio disponible por defecto y el siguiente elemento a este se situará por debajo.
+Es posible añadir medidas de anchura width y altura height a estos a elementos.
+También es posible agregar todas las propiedades del modelo de caja
+
+inline:
+El display inline establece que un elemento ocupará el espacio del contenido del mismo y el siguiente elemento se situará a la derecha.
+No es posible añadir medidas de anchura width y altura height a estos a elementos.
+También, no es posible agregar todas las propiedades del modelo de caja, únicamente funcionará la propiedad margin en el eje horizontal 
+
+inline-block:
+El display inline-block combina las ventajas de bloque de colocar medidas al elemento y propiedades del modelo de caja correctamente; con las ventajas de inline de color un elemento seguido de otro en el mismo espacio.
+Si elemento excede el contenido total, se coloca en la siguiente línea por debajo.
+
+none:
+El display none desactiva la visualización de un elemento, como si el elemento no existiera.
+https://codi.link/PGRpdj48L2Rpdj4NCjxkaXY+PC9kaXY+DQo8ZGl2IGNsYXNzPSJkZXNhcGFyZWNlciI+DQogIEVuIG1pIHNpZ3VpZW50ZSB0cnVjbywgwqF2b3kgYSBkZXNhcGFyZWNlciENCjwvZGl2Pg0KPGRpdj48L2Rpdj4NCjxkaXY+PC9kaXY+DQo=%7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KLmRlc2FwYXJlY2Vyew0KICAvKiBkaXNwbGF5OiBub25lOyAqLw0KICBiYWNrZ3JvdW5kLWNvbG9yOiBjb3JuZmxvd2VyYmx1ZTsNCiAgDQp9DQoNCi8qIElnbm9yYSBlc3RvcyBlc3RpbG9zLCBwb3IgYWhvcmEgKi8NCiogew0KICBib3gtc2l6aW5nOiBib3JkZXItYm94Ow0KICBmb250LXNpemU6IDEuMXJlbTsNCiAgbWFyZ2luOiAwOw0KfQ0KDQpib2R5ew0KICBkaXNwbGF5OiBmbGV4Ow0KfQ0KDQpkaXZ7DQogIGJhY2tncm91bmQtY29sb3I6IGNvcmFsOw0KICB3aWR0aDogMTIwcHg7DQogIGhlaWdodDogMTIwcHg7DQogIGZvbnQtd2VpZ2h0OiA4MDA7DQogIHBhZGRpbmc6IDhweDsNCn0NCg0KDQoNCg==%7C
+
+El display flex y grid son formas de visualización de elementos recientes y cada uno tienen sus propias características para crear interfaces de manera efectiva, a partir de un contenedor padre que dotará a los elementos hijos de superpoderes del posicionamiento.
+
+flex:
+ El elemento padre o contenedor deberá contener la propiedad display con el valor flex. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+resumido todo de flex:
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+practica:
+https://codi.link/PGJvZHk+DQoNCiAgPGEgaHJlZj0iLyI+DQogIDxoMT5hPC9oMT4NCiAgPGgyPmI8L2gxPg0KICA8aDE+YzwvaDE+DQogIDwvYT4NCg0KPC9ib2R5Pg==%7CDQphew0KICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhOw0KICB3aWR0aDoyMDBweDsNCiAgaGVpZ2h0OjIwMHB4Ow0KICBtYXJnaW46IDIwcHg7DQogIGRpc3BsYXk6IGZsZXg7DQogIGp1c3RpZnktY29udGVudDogY2VudGVyOw0KICBhbGlnbi1pdGVtczogY2VudGVyOw0KfQ0KaDF7DQogIGJhY2tncm91bmQtY29sb3I6IHJlZDsNCiAgd2lkdGg6NTBweDsNCiAgaGVpZ2h0OjQwcHg7DQp9DQpoMnsNCmJhY2tncm91bmQtY29sb3I6Z3JlZW55ZWxsb3c7DQogIHdpZHRoOjQwcHg7DQogIGhlaWdodDozMHB4Ow0KfQ0KDQoNCg==%7C
+
+el display: flex; solo se coloca en los contenedores
+
+mas practica:
+https://codi.link/PGJvZHk+DQoNCiA8ZGl2IGNsYXNzPSJjb250YWluZXIiPg0KICA8ZGl2IGNsYXNzPSJpdGVtIj48L2Rpdj4NCiAgPGRpdiBjbGFzcz0iaXRlbSI+PC9kaXY+DQogIDxkaXYgY2xhc3M9Iml0ZW0iPjwvZGl2Pg0KICA8ZGl2IGNsYXNzPSJpdGVtIj48L2Rpdj4NCiA8L2Rpdj4NCg0KPC9ib2R5Pg==%7CLmNvbnRhaW5lcnsNCiAgZGlzcGxheTogZmxleDsNCiAgYmFja2dyb3VuZDogcGFwYXlhd2hpcDsNCiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7DQogLyogIGFsaWduLWl0ZW1zOiBjZW50ZXI7ICovDQovKiAgcG9yIGRlZmVjdG8gYWxpbmVhIGVuIGZpbGEgKi8NCmZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IC8qIGRlIGVzdGEgZm9ybWEgYWxpbmVhIGVuIGNvbHVtbmEgKi8NCiAgaGVpZ2h0OiAyMDBweDsNCn0NCi5pdGVtew0KICB3aWR0aDogMzBweDsNCiAgaGVpZ2h0OiAzMHB4Ow0KICBiYWNrZ3JvdW5kOiBwdXJwbGU7DQp9DQouY29udGFpbmVyDQogLml0ZW06bnRoLWNoaWxkKDJuKzEpey8qIHRvZG9zIGxvcyBlbGVtZW50b3MgaW1wYXJlcyB0b21hcmFuIGVzZSBjb2xvciAqLw0KICBiYWNrZ3JvdW5kOiBjeWFuOw0KIH0NCg0K%7C
+
+grid:
+Grid consiste en el ordenamiento de elementos hijos en dos ejes, como si fuera una cuadrícula o tabla. El elemento padre o contenedor deberá contener la propiedad display con el valor grid y debes definir las medidas de las columnas y de las filas. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
+resumido todo de grid:
+https://css-tricks.com/snippets/css/complete-guide-grid/
+
+grid-template-columns: 1fr 1fr;//fr es que fraccion, es decir que dos fr: 1fr 1fr parte en dos fracciones, en este caso crea dos columnas
+grid-template-rows: 1fr 1fr;//en esto lo mismo pero en filas
+los items, es decir los hijos del container se van ubicado automaticamente de forma ordenada en los espacios creados de la 7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KLmRlc2FwYXJlY2Vyew0KICAvKiBkaXNwbGF5OiBub25lOyAqLw0KICBiYWNrZ3JvdW5kLWNvbG9yOiBjb3JuZmxvd2VyYmx1ZTsNCiAgDQp9DQoNCi8qIElnbm9yYSBlc3RvcyBlc3RpbG9zLCBwb3IgYWhvcmEgKi8NCiogew0KICBib3gtc2l6aW5nOiBib3JkZXItYm94Ow0KICBmb250LXNpemU6IDEuMXJlbTsNCiAgbWFyZ2luOiAwOw0KfQ0KDQpib2R5ew0KICBkaXNwbGF5OiBmbGV4Ow0KfQ0KDQpkaXZ7DQogIGJhY2tncm91bmQtY29sb3I6IGNvcmFsOw0KICB3aWR0aDogMTIwcHg7DQogIGhlaWdodDogMTIwcHg7DQogIGZvbnQtd2VpZ2h0OiA4MDA7DQogIHBhZGRpbmc6IDhweDsNCn0NCg0KDQoNCg
+practica:
+https://codi.link/PGJvZHk+DQoNCiA8ZGl2IGNsYXNzPSJjb250YWluZXIiPg0KICA8ZGl2IGNsYXNzPSJpdGVtIj5hPC9kaXY+DQogIDxkaXYgY2xhc3M9Iml0ZW0iPmI8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iaXRlbSI+YzwvZGl2Pg0KICA8ZGl2IGNsYXNzPSJpdGVtIj5kPC9kaXY+DQogPC9kaXY+DQoNCjwvYm9keT4=%7CLmNvbnRhaW5lcnsNCiAgZGlzcGxheTogZ3JpZDsNCiAgd2lkdGg6IDQwMHB4Ow0KICBoZWlnaHQ6IDQwMHB4Ow0KICBiYWNrZ3JvdW5kOiBwYXBheWF3aGlwOw0KICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnIgMWZyIDFmcjsNCiAgZ3JpZC10ZW1wbGF0ZS1yb3dzOiAxZnIgMWZyOw0KfQ0KLml0ZW17DQogIGJhY2tncm91bmQ6IHBpbms7DQp9DQouY29udGFpbmVyIC5pdGVtOm50aC1jaGlsZCgxKXsNCiAgZ3JpZC1jb2x1bW46IDEvMjsgLyogZW1waWV6YSBlbiBsYSBsaW5lYSAxIHkgdGVybWluYSBlbiBsYSBsaW5lYSAyLCBkZSBsYXMgbGluZWFzIGRlIGNvbHVtbmEqLw0KfQ0KLmNvbnRhaW5lciAuaXRlbTpudGgtY2hpbGQoMil7DQogIGdyaWQtY29sdW1uOiAyLzM7IC8qIGVtcGllemEgZW4gbGEgbGluZWEgMiB5IHRlcm1pbmEgZW4gbGEgbGluZWEgMywgZGUgbGFzIGxpbmVhcyBkZSBjb2x1bW5hKi8NCiAgZ3JpZC1yb3c6IDIvMzsvKmFob3JhIGVzdG8gY29uIGxpbmVhcyBmaWxhcyovDQp9DQoNCg==%7C
+
+Modelo de caja:
+border-sizing: hace que el tamaño de caja sea el definido con with y height ajustando todos los valores del tamaño que tendria el contenido
+Las margenes en css se suman, es decir se fusionan con una siguiente en vertical, esto s conocido como colapso.
+practica: https://codi.link/PGRpdj4NCkhvbGl0YQ0KPC9kaXY+DQo8ZGl2Pg0KQ29tbyBlc3Rhcz8NCjwvZGl2Pg0KDQoNCg0K%7CZGl2ew0KICB3aWR0aDogMjAwcHg7DQogIGhlaWdodDogMjAwcHg7DQogIGJhY2tncm91bmQ6IGFxdWE7DQogIHBhZGRpbmc6IDIwcHg7DQogIGJveC1zaXppbmc6IGJvcmRlci1ib3g7DQogIGJvcmRlcjogMTBweCBzb2xpZCByZWQ7DQogIG1hcmdpbjogMjBweDsNCn0NCg0KDQoNCg0KDQo=%7C
+
+La propiedad box-sizing establece cómo se calculará el width y el height si incluyen bordes y espacios internos. Como buena práctica, se lo coloca en el selector universal, para que todos los elementos sigan esta tendencia.
+Con el valor border-box, el tamaño total del elemento será igual al especificado en el width y height, provocando que las medidas del contenido cambien con respecto a los bordes y espacios internos.
+buena practica:
+* {
+  box-sizing: border-box;
+}
+
+tamaño del contenido del html:
+div {
+    width: 100px;
+    height: 100px;
+}
+border:
+div {
+    border: [color] [style] [width];
+}
+div {
+    border-color: red;
+    border-style: solid;
+    border-width: 1px;
+}
+border-style: establece el estilo propio del borde, estos pueden ser: none (sin borde), dotted (puntos), dashed (guiones), solid (continuo), double (doble continuo), groove (recuadro).
+border-width: estable la anchura del borde.
+ejemplos de bordes:
+https://codi.link/PGRpdiBjbGFzcz0ibm9uZSI+U2luIGJvcmRlPC9kaXY+DQo8ZGl2IGNsYXNzPSJkb3R0ZWQiPkNvbiBwdW50b3M8L2Rpdj4NCjxkaXYgY2xhc3M9ImRhc2hlZCI+Q29uIGd1aW9uZXM8L2Rpdj4NCjxkaXYgY2xhc3M9InNvbGlkIj5Db250aW51bzwvZGl2Pg0KPGRpdiBjbGFzcz0iZG91YmxlIj5kb2JsZSBjb250aW51bzwvZGl2Pg0KPGRpdiBjbGFzcz0iZ3Jvb3ZlIj5Db24gcmVjdWFkcm88L2Rpdj4NCg0KDQo=%7CZGl2ew0KICB3aWR0aDogMTIwcHg7DQogIGhlaWdodDogMTIwcHg7DQp9DQoNCi5ub25lew0KICAvKiBWYWxvciBwb3IgZGVmZWN0byBkZSBkaXYgKi8NCiAgYm9yZGVyOiAzcHggYmxhY2sgbm9uZTsNCn0NCg0KLmRvdHRlZHsNCiAgYm9yZGVyOiAzcHggYmxhY2sgZG90dGVkOw0KfQ0KDQouZGFzaGVkew0KICBib3JkZXI6IDNweCBibGFjayBkYXNoZWQ7DQp9DQoNCi5zb2xpZHsNCiAgYm9yZGVyOiAzcHggYmxhY2sgc29saWQ7DQp9DQoNCi5kb3VibGV7DQogIGJvcmRlcjogM3B4IGJsYWNrIGRvdWJsZTsNCn0NCg0KLmdyb292ZXsNCiAgYm9yZGVyOiA1cHggZ3JlZW55ZWxsb3cgZ3Jvb3ZlOw0KfQ0KDQoNCg0KLyogSWdub3JhIGVzdG9zIGVzdGlsb3MsIHBvciBhaG9yYSAqLw0KKiB7DQogIGZvbnQtc2l6ZTogMS4xcmVtOw0KICBtYXJnaW46IDA7DQp9DQoNCmJvZHl7DQogIGRpc3BsYXk6IGZsZXg7DQogIGZsZXgtd3JhcDogd3JhcDsNCiAgZ2FwOiAxLjVyZW07DQogIG1hcmdpbjogMjBweDsNCiAgZm9udC13ZWlnaHQ6IDgwMDsNCn0NCg0KDQoNCg==%7C
+
+de manera individual posicion de los bordes:
+div {
+  border-top: 5px solid blue;
+  border-bottom: 5px solid red;
+  border-left: 5px solid black;
+  border-right: 5px solid yellow;
+}
+padding: consiste en el espacio entre el borde y el contenido del elemento HTML
+div {
+    padding: 100px;
+}
+ejemplo: https://codi.link/PGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KDQoNCg==%7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KZGl2ew0KICB3aWR0aDogMTIwcHg7DQogIGhlaWdodDogMTIwcHg7DQogIGJhY2tncm91bmQtY29sb3I6IGdyZWVueWVsbG93Ow0KICBib3JkZXI6IHNvbGlkIDFweCBibGFjazsNCiAgLyogcGFkZGluZzogMzBweDsgZWxpbWluYW1lIGRlIHNlciBjb21lbnRhcmlvIHBhcmEgcXVlIG1pcmVzIGVsIHJlc3VsdGFkbyBkZSBwYWRkaW5nKi8NCn0NCg0KDQoNCi8qIElnbm9yYSBlc3RvcyBlc3RpbG9zLCBwb3IgYWhvcmEgKi8NCiogew0KICBmb250LXNpemU6IDEuMXJlbTsNCiAgbWFyZ2luOiAwLjVyZW07DQp9DQo=%7C
+padding: [arriba] [derecha] [abajo] [izquierda], siguiendo el sentido horario.
+padding: [arriba] [derecha e izquierda] [abajo], siguiendo el eje principal.
+padding: [arriba y abajo] [derecha e izquierda], siguiendo los ejes del elemento.
+segun posicion:
+div {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+margin: consiste en el espacio entre el borde y otro elemento HTML.
+div {
+    margin: 10px;
+}
+ejemplo: https://codi.link/PGRpdiBjbGFzcyA9ICJtYXJnaW4iPkxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0IGNvbnNlY3RldHVyIGFkaXBpc2ljaW5nIGVsaXRpPC9kaXY+DQo8ZGl2PlNveSBvdHJvIGVsZW1lbnRvPC9kaXY+DQoNCg0K%7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KZGl2ew0KICB3aWR0aDogMTIwcHg7DQogIGhlaWdodDogMTIwcHg7DQogIGJhY2tncm91bmQtY29sb3I6IGdyZWVueWVsbG93Ow0KICBib3JkZXI6IHNvbGlkIDFweCBibGFjazsNCn0NCg0KLm1hcmdpbiB7DQogIC8qIG1hcmdpbjogMjBweDsgRUxJTUlOQU1FIFBBUkEgUVVFIE1JUkVTKi8NCn0NCg0KDQoNCi8qIElnbm9yYSBlc3RvcyBlc3RpbG9zLCBwb3IgYWhvcmEgKi8NCiogew0KICBmb250LXNpemU6IDEuMXJlbTsNCiAgbWFyZ2luOiAwOw0KfQ0KDQpib2R5ew0KICBkaXNwbGF5OiBmbGV4Ow0KICBtYXJnaW46IDIwcHg7DQogIGZvbnQtd2VpZ2h0OiA4MDA7DQp9DQoNCg0KDQoNCg==%7C
+
+margin: [arriba] [derecha] [abajo] [izquierda], siguiendo el sentido horario.
+margin: [arriba] [abajo] [derecha e izquierda], siguiendo el eje principal.
+margin: [arriba y abajo] [derecha e izquierda], siguiendo los ejes del elemento.
+segun posicion:
+div {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+VALORES POR DEFECTO: Por defecto, el navegador establece valores iniciales a algunas propiedades CSS, este es el caso de margin y padding. Una buena práctica es utilizar el selector universal para restablecer estos valores a 0, para que no surjan errores inesperados.
+es decir hacer:
+* {
+    margin: 0;
+    padding: 0;
+}
+
+Tamaño total del elemento: El tamaño total del elemento está determinado por la suma de los valores de las propiedades border padding y widtho height, dependiendo del eje. La propiedad margin no está incluida en este cálculo.
+div{
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  border: 10px solid gray;
+  margin: 30px;
+}
+resultado: https://codi.link/PGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KDQoNCg==%7CKiB7DQogIG1hcmdpbjogMDsNCiAgcGFkZGluZzogMDsNCn0NCg0KZGl2ew0KICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbnllbGxvdzsNCiAgd2lkdGg6IDE1MHB4Ow0KICBoZWlnaHQ6IDE1MHB4Ow0KICBwYWRkaW5nOiAyMHB4Ow0KICBib3JkZXI6IDEwcHggc29saWQgZ3JheTsNCiAgbWFyZ2luOiAzMHB4Ow0KfQ0KDQoNCg0KDQoNCg0KDQoNCg==%7C
+del RESULTADO ANTERIOR: El tamaño total del elemento será de 210px en ambos ejes, donde la suma fue: 150 (altura/anchura) + 20 x 2 (padding ambos lados) + 10 x 2 (borde ambos lados). Si evaluamos este elemento en las herramientas del desarrollador mostrará su tamaño como 210x210
+
+¿Cuál es el problema con el tamaño de los bordes?
+Recapitulando, el tamaño total de un elemento es la suma de tres: el borde, el espacio interior y el contenido.
+Entonces, en algunas ocasiones tendrás la intención de añadir un borde al realizar un hover. Esto provocará que el elemento necesite más espacio del inicial, en un contenedor con más elementos puede ocasionar un conflicto.
+Mira el siguiente ejemplo, e intenta poner el cursor sobre un elemento ¿qué sucede?
+
+ejemplo con el problema: https://codi.link/PGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KPGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KDQoNCg==%7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBsbyBxdWUgb2N1cnJlICovDQoqIHsNCiAgbWFyZ2luOiAwOw0KICBwYWRkaW5nOiAwOw0KfQ0KDQpkaXZ7DQogIGRpc3BsYXk6IGlubGluZS1ibG9jazsNCiAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW55ZWxsb3c7DQogIHdpZHRoOiAxNTBweDsNCiAgaGVpZ2h0OiAxNTBweDsNCiAgcGFkZGluZzogMjBweDsNCiAgbWFyZ2luOiAzMHB4Ow0KfQ0KDQpkaXY6aG92ZXJ7DQogIGJvcmRlcjogMTBweCBzb2xpZCBncmF5Ow0KICBjdXJzb3I6IHBvaW50ZXI7DQp9DQoNCg0KDQoNCg0K%7C
+
+Observaste este comportamiento, debes tener cuidado con lo que agregas porque puedes provocar errores.
+
+La solución a esto es colocar un borde de color transparent (transparente) y del mismo tamaño que el otro borde. Esto hará que el elemento se mantenga en su tamaño total, lo único que cambia es el color.
+solucion al problema del ejemplo anterior: https://codi.link/PGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KPGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KDQoNCg==%7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBsbyBxdWUgb2N1cnJlICovDQoqIHsNCiAgbWFyZ2luOiAwOw0KICBwYWRkaW5nOiAwOw0KfQ0KDQpkaXZ7DQogIGRpc3BsYXk6IGlubGluZS1ibG9jazsNCiAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW55ZWxsb3c7DQogIHdpZHRoOiAxNTBweDsNCiAgaGVpZ2h0OiAxNTBweDsNCiAgcGFkZGluZzogMjBweDsNCiAgbWFyZ2luOiAzMHB4Ow0KICAvKiBib3JkZXI6IDEwcHggc29saWQgdHJhbnNwYXJlbnQ7IFFVSVRBTUUqLw0KfQ0KDQpkaXY6aG92ZXJ7DQogIGJvcmRlcjogMTBweCBzb2xpZCBncmF5Ow0KICBjdXJzb3I6IHBvaW50ZXI7DQp9DQoNCg0KDQoNCg0K%7C
+
+LINKS INTERESANTES:
+colapso con el margin: https://www.joshwcomeau.com/css/rules-of-margin-collapse/
+
+Colapso de márgenes:
+El colapso de márgenes sucede cuando dos elementos bloque adyacentes tienen un determinado valor de margin, entonces estos márgenes se solapan en un solo valor, el mayor de ambos.
+el colapso com sucedio anteriorrmente con los dos bloques es debido a las propiedades de eqtiqueta en bloque.
+ejemplo solucion a problema con etiquetas de block:
+https://codi.link/PHNlY3Rpb24gY2xhc3M9ImNvbnRhaW5lciI+DQogIDxkaXY+UGxhdHppPC9kaXY+DQogIDxkaXY+TWFzdGVyPC9kaXY+DQo8L3NlY3Rpb24+DQo=%7CLmNvbnRhaW5lcnsNCiAgZGlzcGxheTogZmxleDsNCiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsNCn0NCmRpdnsNCiAgbWFyZ2luOjIwcHg7DQp9DQoNCg0KDQoNCg0K%7C
+
+otro ejemplo: 
+https://codi.link/PGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KPGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KPGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KPGRpdj5Mb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0aTwvZGl2Pg0KDQoNCg0K%7CKiB7DQogIG1hcmdpbjogMDsNCiAgcGFkZGluZzogMDsNCiAgYm94LXNpemluZzogYm9yZGVyLWJveDsNCn0NCg0KLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBsbyBxdWUgb2N1cnJlICovDQpkaXZ7DQogIC8qIGRpc3BsYXk6IGlubGluZS1ibG9jazsgKi8NCiAgbWFyZ2luOiA0MHB4Ow0KICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbnllbGxvdzsNCiAgd2lkdGg6IDgwJTsNCiAgaGVpZ2h0OiA1MHB4Ow0KICBwYWRkaW5nOiAxMHB4Ow0KfQ0KDQoNCg0KDQoNCg0K%7C
+
+Como puedes observar, al cambiar el display este comportamiento desaparece. Además, en flexbox y grid no ocurre el colapso de márgenes. Cuida los márgenes que colocas en los elementos de tipo bloque.
+
+Posicionamiento en CSS:
+El posicionamiento en CSS consiste en cómo un elemento se situará, con respecto a su elemento padre y al flujo normal del documento. El flujo normal del documento es el orden de los elementos establecidos en el HTML.
+La posición del elemento se la define con la propiedad position, mediante los siguientes valores:
+static
+relative
+absolute
+sticky
+Propiedades de posición:
+Además de la propiedad position, existen cuatro propiedades del elemento de acuerdo a su posición con respecto a su padre, estas son: top (arriba), bottom (debajo), left (izquierda) y right (derecha).
+div {
+    top: 10px;
+    bottom: 15px;
+    left: 20px;
+    right: 10px;
+}
+Estos valores estarán establecidos en el padre próximo que tenga la posición relative.
+Si top y bottom están definidos, top gana. Si left y rigth están definidos, left gana
+
+static: es el valor por defecto de todo elemento HTML, consiste en respetar el flujo normal del documento donde las propiedades de posición no pueden ser establecidas.
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCiAgPGRpdj48L2Rpdj4NCjwvZGl2Pg0KDQoNCg0K%7CKiB7DQogIG1hcmdpbjogMDsNCiAgcGFkZGluZzogMDsNCiAgYm94LXNpemluZzogYm9yZGVyLWJveDsNCn0NCi5jb250YWluZXJ7DQogIHdpZHRoOiAxMDAlOw0KDQp9DQovKiBRdWl0YSBsb3MgY29tZW50YXJpb3MgeSBvYnNlcnZhIGVsIGNvbXBvcnRhbWllbnRvICovDQouY29udGFpbmVyIGRpdiB7DQogIHdpZHRoOiAxMDBweDsgDQogIGhlaWdodDogMTAwcHg7DQovKiANCiAgdG9wOiAxMHB4Ow0KICBib3R0b206IDE1cHg7DQogIGxlZnQ6IDIwcHg7DQogIHJpZ2h0OiAxMHB4OyANCiAgKi8NCn0NCi5jb250YWluZXIgZGl2Om50aC1jaGlsZCgybil7DQogIGJhY2tncm91bmQtY29sb3I6IGFxdWE7DQp9DQouY29udGFpbmVyIGRpdjpudGgtY2hpbGQoMm4rMSl7DQogIGJhY2tncm91bmQtY29sb3I6IGJyb3duOw0KfQ0KDQoNCg0KDQoNCg0K%7C
+
+relative: consiste en respetar el flujo normal del documento donde las propiedades de posición sí pueden ser establecidas.
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0icmVsYXRpdmUiPjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KICA8ZGl2PjwvZGl2Pg0KPC9kaXY+DQoNCg0KDQo=%7CKiB7DQogIG1hcmdpbjogMDsNCiAgcGFkZGluZzogMDsNCiAgYm94LXNpemluZzogYm9yZGVyLWJveDsNCn0NCg0KLmNvbnRhaW5lcnsNCiAgd2lkdGg6IDEwMCU7DQp9DQoNCi5jb250YWluZXIgZGl2IHsNCiAgd2lkdGg6IDEwMHB4OyANCiAgaGVpZ2h0OiAxMDBweDsNCn0NCg0KLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KLmNvbnRhaW5lciAucmVsYXRpdmV7DQogIC8qIHBvc2l0aW9uOiByZWxhdGl2ZTsgKi8NCiAgLyogdG9wOiA1MHB4OyAqLw0KICAvKiBsZWZ0OiA1MHB4OyAqLw0KfQ0KDQouY29udGFpbmVyIGRpdjpudGgtY2hpbGQoMm4pew0KICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhOw0KfQ0KDQouY29udGFpbmVyIGRpdjpudGgtY2hpbGQoMm4rMSl7DQogIGJhY2tncm91bmQtY29sb3I6IGJyb3duOw0KfQ0KDQoNCg0KDQoNCg0K%7C
+
+absolute: consiste en quitar al elemento del flujo normal del documento donde las propiedades de posición sí pueden ser establecidas
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iYWJzb2x1dGUiPjE8L2Rpdj4NCiAgPGRpdj4yPC9kaXY+DQogIDxkaXY+MzwvZGl2Pg0KICA8ZGl2PjQ8L2Rpdj4NCiAgPGRpdj41PC9kaXY+DQo8L2Rpdj4NCg0KDQoNCg==%7CKiB7DQogIG1hcmdpbjogMDsNCiAgcGFkZGluZzogMDsNCiAgYm94LXNpemluZzogYm9yZGVyLWJveDsNCiAgZm9udC1zaXplOiAxLjVyZW07DQp9DQoNCi8qIEltcG9ydGFudGUgZWwgcG9zaXRpb24gKi8NCi5jb250YWluZXJ7DQogIHBvc2l0aW9uOiByZWxhdGl2ZTsNCiAgd2lkdGg6IDEwMCU7DQp9DQoNCi5jb250YWluZXIgZGl2IHsNCiAgd2lkdGg6IDEwMHB4OyANCiAgaGVpZ2h0OiAxMDBweDsNCn0NCg0KLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KLmNvbnRhaW5lciAuYWJzb2x1dGV7DQogIC8qIHBvc2l0aW9uOiBhYnNvbHV0ZTsgKi8NCiAgLyogbGVmdDogMTUwcHg7ICovDQogIC8qIHRvcDogNTBweDsgKi8NCn0NCg0KLmNvbnRhaW5lciBkaXY6bnRoLWNoaWxkKDJuKXsNCiAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTsNCn0NCg0KLmNvbnRhaW5lciBkaXY6bnRoLWNoaWxkKDJuKzEpew0KICBiYWNrZ3JvdW5kLWNvbG9yOiBicm93bjsNCn0NCg0KDQoNCg0KDQoNCg0KDQo=%7C
+Habrás notado que el elemento “2” desaparece, pero en realidad lo que sucede es que sitúa por detrás del elemento con posición absoluta que salió del flujo normal del documento. Este comportamiento se debe al eje Z de la pantalla y al contexto de apilamiento.
+otro ejemplo: https://codi.link/PHA+Qm9keTwvcD4NCjxkaXYgY2xhc3M9ImFidWVsbyI+DQogIDxwPkFidWVsbzwvcD4NCiAgPGRpdiBjbGFzcz0icGFkcmUiPg0KICAgIDxwPlBhZHJlPC9wPg0KICAgIDxkaXYgY2xhc3M9Imhpam8iPg0KICAgICAgPHA+SGlqbzwvcD4NCiAgICA8L2Rpdj4NCiAgPC9kaXY+DQo8L2Rpdj4=%7CLyogRWwgZWplcmNpY2lvIGVzdMOhIGhhc3RhIGFiYWpvICovDQoNCiogew0KICBtYXJnaW46IDA7DQogIHBhZGRpbmc6IDA7DQogIGJveC1zaXppbmc6IGJvcmRlci1ib3g7DQogIHRleHQtYWxpZ246IGNlbnRlcjsNCn0NCg0KaHRtbHsNCiAgbWFyZ2luOiAyMHB4Ow0KICBib3JkZXI6IDFweCByZWQgc29saWQ7DQp9DQoNCmJvZHkgew0KICBtYXJnaW46IDIwcHg7DQogIGJhY2tncm91bmQtY29sb3I6IHdoZWF0Ow0KICBib3JkZXI6IDFweCBibGFjayBzb2xpZDsNCn0NCg0KcCB7DQogIGZvbnQtc2l6ZTogMS41cmVtOw0KICBmb250LXdlaWdodDogYm9sZDsNCiAgbWFyZ2luLWJvdHRvbTogNTBweDsNCg0KfQ0KDQouYWJ1ZWxvew0KICB3aWR0aDogMTAwJTsNCiAgaGVpZ2h0OiAxMDB2aDsNCiAgYmFja2dyb3VuZC1jb2xvcjogeWVsbG93Z3JlZW47DQp9DQoNCi5wYWRyZXsNCiAgd2lkdGg6IDc1JTsNCiAgaGVpZ2h0OiA3NSU7DQogIGJhY2tncm91bmQtY29sb3I6IGNhZGV0Ymx1ZTsNCn0NCg0KLmhpam97DQogIHdpZHRoOiAxNTBweDsNCiAgaGVpZ2h0OiAxNTBweDsNCiAgYmFja2dyb3VuZC1jb2xvcjogcm9zeWJyb3duOyANCn0NCg0KDQovKiBMbyDDum5pY28gcXVlIHF1aWVybyBxdWUgZW50aWVuZGFzIGVzIHF1ZSBoYXkgMyBjb250ZW5lZG9yZXMsIGxvcyBjdcOhbGVzIA0KLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCBjb21wb3J0YW1pZW50byAqLw0KDQoNCi5oaWpvIHsNCiAgLyogcG9zaXRpb246IGFic29sdXRlOyAqLw0KICAvKiB0b3A6IDA7ICovDQp9DQoNCi8qIMK/IFBvciBxdcOpIHN1Y2VkacOzIGVzdG8gPyAqLw0KDQpodG1sIHsNCiAgLyogcG9zaXRpb246IHJlbGF0aXZlOyAqLw0KfQ0KDQpib2R5IHsNCiAgLyogcG9zaXRpb246IHJlbGF0aXZlOyAqLw0KfQ0KDQouYWJ1ZWxvew0KICAvKiBwb3NpdGlvbjogcmVsYXRpdmU7ICovDQp9DQoNCi5wYWRyZSB7DQogIC8qIHBvc2l0aW9uOiByZWxhdGl2ZTsgKi8NCn0NCg0KLyogwr8gQWhvcmEgZW50ZW5kaXN0ZSA/ICovDQoNCg0KDQoNCg0KDQoNCg0K%7C
+
+fixed: consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar; donde las propiedades de posición sí pueden ser establecidas.
+sticky: consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar mientras su contenedor sea visible; donde las propiedades de posición sí pueden ser establecidas.
+
+position: fixed, para que se quede fijo en la pagina
+position: sticky, se pega cierta etiqueta 
+ejemplo:
+ul p{
+  position: sticky;
+  top:0;
+}
+//en este caso se pega lo de p en ul, en este caso necesita de un padre e hijo
+ejemplo: https://codi.link/PG5hdj5kZHNkPC9uYXY+DQoNCjxkaXYgY2xhc3M9ImNvbnRhaW5lciI+DQogIDxkaXYgY2xhc3M9Iml0ZW0iPjwvZGl2Pg0KPC9kaXY+DQoNCjxwPkxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0IGNvbnNlY3RldHVyIGFkaXBpc2ljaW5nIGVsaXQuIE5vYmlzIHVsbGFtIG9kaXQgdm9sdXB0YXRlbSBhcGVyaWFtLiBPZGlvIG9tbmlzIGNvbW1vZGkgbmlzaSBxdW8sIHF1b3Mgdm9sdXB0YXRpYnVzIHJlcGVsbGVuZHVzIHBvc3NpbXVzIHJlbSBzdXNjaXBpdCBmdWdpYXQsIGNvcnBvcmlzIHF1YXNpIGlsbHVtIGRlc2VydW50PyBJbXBlZGl0LiBMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCBjb25zZWN0ZXR1ciBhZGlwaXNpY2luZyBlbGl0LiBFcnJvciBlYXF1ZSByZXB1ZGlhbmRhZSBudW1xdWFtIGludmVudG9yZSBhcmNoaXRlY3RvIHZlbmlhbSBmdWdpYXQsIHZvbHVwdGF0ZXMgZXNzZSBmYWNlcmUgdGVtcG9yZSwgYXQgYWNjdXNhbnRpdW0gcXVpcyB2aXRhZSB2ZWxpdCwgYWNjdXNhbXVzIGRvbG9ydW0gYWIgbnVsbGEgc2l0LiBMb3JlbSwgaXBzdW0gZG9sb3Igc2l0IGFtZXQgY29uc2VjdGV0dXIgYWRpcGlzaWNpbmcgZWxpdC4gQ29ycG9yaXMgbmloaWwgY3VtLCBlc3QgYXRxdWUgaWxsdW0gc3VudCB2b2x1cHRhdGVzIGxhdWRhbnRpdW0gbmlzaSBjdWxwYSBleHBlZGl0YSBpbXBlZGl0IGluY2lkdW50IGV4ZXJjaXRhdGlvbmVtLCBtb2xlc3RpYXMsIGZhY2lsaXMgaXVyZSBub2JpcyBtb2RpIGlkIGhpYz8gTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQgY29uc2VjdGV0dXIgYWRpcGlzaWNpbmcgZWxpdC4gRGVzZXJ1bnQgc2VxdWkgYWxpcXVhbSBhdXQgdmVyaXRhdGlzIGV2ZW5pZXQgZmFjZXJlIGlsbHVtLCBpbGxvIHNhcGllbnRlIHV0LiBPYmNhZWNhdGkgYWIgdm9sdXB0YXR1bSBpbmNpZHVudCBzaW50IGZ1Z2EgZXJyb3IgYXRxdWUgcXVpYnVzZGFtIHNhZXBlIGRlYml0aXMuPC9wPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQo8dWw+DQogIDxwPmxldHJhczwvcD4NCiAgPGxpPmE8L2xpPg0KICA8bGk+YjwvbGk+DQogIDxsaT5jPC9saT4NCjwvdWw+DQoNCjx1bD4NCiAgPHA+bGV0cmFzPC9wPg0KICA8bGk+YTwvbGk+DQogIDxsaT5iPC9saT4NCiAgPGxpPmM8L2xpPg0KPC91bD4NCg0KPHVsPg0KICA8cD5sZXRyYXM8L3A+DQogIDxsaT5hPC9saT4NCiAgPGxpPmI8L2xpPg0KICA8bGk+YzwvbGk+DQo8L3VsPg0KDQoNCg==%7CLmNvbnRhaW5lcnsNCiAgd2lkdGg6IDIwMHB4Ow0KICBoZWlnaHQ6IDIwMHB4Ow0KICBiYWNrZ3JvdW5kOiBhbnRpcXVld2hpdGU7DQogIHBvc2l0aW9uOiByZWxhdGl2ZTsNCiAgdG9wOiAyMHB4Ow0KfQ0KLml0ZW17DQogIHdpZHRoOiAyMHB4Ow0KICBoZWlnaHQ6IDIwcHg7DQogIGJhY2tncm91bmQ6IGZ1Y2hzaWE7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCiAgcmlnaHQ6IDA7DQp9DQpuYXZ7DQogIHdpZHRoOiAxMDAlOw0KICBoZWlnaHQ6IDYwcHg7DQogIGJhY2tncm91bmQ6IHJlZDsNCiAgcG9zaXRpb246IGZpeGVkOw0KICB0b3A6IDA7DQp9DQp1bCBwew0KICBwb3NpdGlvbjogc3RpY2t5Ow0KICB0b3A6MDsNCn0NCg0KDQoNCg0K%7C
+
+Z-index y el contexto de apilamiento
+El contexto de apilamiento consiste en la superposición de capas o elementos a lo largo del eje Z del navegador. Esto es importante para evitar que un elemento esté ocultando a otro.
+los de abajo prevaleceran por sobre los de arriba
+
+El eje X positivo está hacia la derecha; el eje Y positivo está hacia abajo; y el eje Z positivo está hacia el usuario.
+
+El contexto de apilamiento se configura con la propiedad z-index.
+Por defecto, todos los elementos tienen un valor auto, es decir, el orden está definido por la estructura del HTML. Los primeros elementos estarán detrás y los últimos estarán de frente.
+
+Si un elemento tiene un z-index mayor a otro, estará por delante. Sin embargo, si un elemento que tiene un z-index menor a otros, sus hijos nunca estarán por encima, aunque su z-index sea mayor.
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0icmVkIj5SZWQ8L2Rpdj4NCjxkaXYgY2xhc3M9ImJsdWUiPkJsdWUNCiAgPGRpdiBjbGFzcz0ieWVsbG93Ij4NCiAgICBZZWxsb3cgKGhpam8gZGUgYmx1ZSkNCiAgPC9kaXY+DQo8L2Rpdj4=%7CLyogUXVpdGEgbG9zIGNvbWVudGFyaW9zIHkgb2JzZXJ2YSBlbCByZXN1bHRhZG8gKi8NCg0KZGl2IHsNCiAgLyogcG9zaXRpb246IGFic29sdXRlOyAqLw0KfQ0KDQoucmVkew0KICAvKiB6LWluZGV4OiA1OyAqLw0KICAvKiB0b3A6IDUwcHg7ICovDQp9DQoNCi5ibHVlew0KICAvKiB6LWluZGV4OiA0OyAqLw0KICAvKiBsZWZ0OiA1MHB4OyAqLw0KfQ0KDQoueWVsbG93ew0KICAvKiB6LWluZGV4OiA2OyAqLw0KICAvKiByaWdodDogLTIwcHg7ICovDQogIC8qIHRvcDogNDBweDsgKi8NCn0NCg0KDQovKiBJZ25vcmEgbG9zIHNpZ3VpZW50ZXMgZXN0aWxvcyAqLw0KDQoqIHsNCiAgbWFyZ2luOiAwOw0KICBwYWRkaW5nOiAwOw0KICBib3gtc2l6aW5nOiBib3JkZXItYm94Ow0KICBmb250LXNpemU6IDEuMXJlbTsNCn0NCg0KZGl2IHsNCiAgd2lkdGg6IDIwMHB4Ow0KICBoZWlnaHQ6IDIwMHB4Ow0KfQ0KDQoucmVkew0KICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjQ2LCAxMDgsIDEwOCk7DQp9DQoNCi5ibHVlew0KICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTAyLCAxMDIsIDI0OSk7DQp9DQoNCi55ZWxsb3d7DQogIHdpZHRoOiAxNTBweDsNCiAgaGVpZ2h0OiAxNTBweDsNCiAgYmFja2dyb3VuZC1jb2xvcjogeWVsbG93Ow0KfQ0KDQoNCg0K%7C
+Como puedes observar en la imagen, el elemento con la clase yellow tiene un z-index mayor a red, pero no está por encima, porque su contexto de apilamiento está dentro del contexto de apilamiento del elemento blue, así mismo, nunca estará por detrás de su elemento padre.
+
+otro ejemplo: https://codi.link/PGRpdiBjbGFzcz0ib25lIj5Ib2xpc3M8L2Rpdj4NCjxkaXYgY2xhc3M9InR3byI+QnllZWU8L2Rpdj4NCg0KDQo=%7CZGl2ew0KICBwb3NpdGlvbjogYWJzb2x1dGU7DQogIGJhY2tncm91bmQ6IHllbGxvdzsNCn0NCi5vbmV7DQogIHotaW5kZXg6IDU7DQp9DQoudHdvew0KICB6LWluZGV4OiA0Ow0KfQ0K%7C
+
+para Textos:
+font-size: establece un tamaño de fuente.
+font-weight: establece el resaltado del texto, con valores de 100 a 900 en intervalos de 100; donde 100 es delgada y 900 es negrita.
+font-family: establece el tipo de fuente.
+text-align: establece la posición del texto: right, left, center y justify.
+color: establece el color del texto.
+
+propiedades de css: https://cssreference.io/
+
+overflow: todo lo que se salga lo esconde
+ejemplo de uso:
+overflow: hidden;//esconde lo que se salga
+
+ejemplo de card: https://codi.link/PHNlY3Rpb24+DQogIDxkaXYgY2xhc3M9ImNhcmQiPg0KICAgIDxpbWcgc3JjPSJodHRwczovL2ltYWdlcy5wZXhlbHMuY29tL3Bob3Rvcy8yMTY2NTUzL3BleGVscy1waG90by0yMTY2NTUzLmpwZWc/YXV0bz1jb21wcmVzcyZjcz10aW55c3JnYiZ3PTEyNjAmaD03NTAmZHByPTEiIGFsdD0iIj4NCiAgICA8cD5Ib2xhPC9wPg0KICAgIDxwPkVudHJhPC9wPg0KICA8L2Rpdj4NCjwvc2VjdGlvbj4NCg0K%7Cc2VjdGlvbnsNCiAgd2lkdGg6IDEwMCU7DQogIGRpc3BsYXk6IGZsZXg7DQogIGp1c3RpZnktY29udGVudDogY2VudGVyOw0KfQ0KLmNhcmR7DQogIHdpZHRoOiAzMDBweDsNCiAgaGVpZ2h0OiAzMDBweDsNCiAgYmFja2dyb3VuZDogcGFwYXlhd2hpcDsNCiAgYm9yZGVyLXJhZGl1czogMzBweDsNCiAgb3ZlcmZsb3c6IGhpZGRlbjsNCn0NCi5jYXJkIHB7DQogIHRleHQtYWxpZ246IGNlbnRlcjsNCn0NCi5jYXJkIGltZ3sNCiAgd2lkdGg6IDEwMCU7DQp9DQouY2FyZCBwOm50aC1jaGlsZCgzKXsNCiAgY29sb3I6IHJlZDsNCn0=%7C
+
+La propiedad que establece bordes redondeados es: border-radius.
+ejemplos de bordes redondeados:
+https://codi.link/PGRpdiBjbGFzcz0iYm9yZGVyIj48L2Rpdj4NCjxkaXYgY2xhc3M9ImNpcmNsZSI+PC9kaXY+%7CZGl2IHsNCiAgd2lkdGg6IDIwMHB4Ow0KICBoZWlnaHQ6IDIwMHB4Ow0KICBiYWNrZ3JvdW5kLWNvbG9yOiBicm93bjsNCiAgbWFyZ2luOiAyMHB4Ow0KICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7DQp9DQoNCi5ib3JkZXJ7DQogIGJvcmRlci1yYWRpdXM6IDM1cHg7DQp9DQoNCi5jaXJjbGV7DQogIGJvcmRlci1yYWRpdXM6IDUwJTsNCn0NCg0KDQo=%7C
+
+Unidades de medida:
+Las medidas absolutas: son valores fijos, por lo que la medida no cambiará. La unidad absoluta más utilizada son los píxeles px, las demás son muy poco utilizadas, pero es bueno que las conozcas.
+
+Las medidas relativas: son valores variables, por lo que la medida depende de un valor externo. Se debe tener en cuidado con estas porque un pequeño cambio puede desencadenar tamaños muy elevados.
+
+Diferencia entre rem y em
+La medida em depende del elemento que lo contiene, es decir, si un elemento tiene font-size de 20px, el valor de em es igual a 20px, el valor de 2em será de 40px y así sucesivamente.
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0ibml2ZWwxIj4NCiAgPHA+TGV0cmEgZGUgMjBweDwvcD4NCiAgPGRpdiBjbGFzcz0ibml2ZWwyIj4NCiAgICA8cD5MZXRyYSBkZSAyMHB4PC9wPg0KICAgIDxkaXYgY2xhc3M9Im5pdmVsMyI+DQogICAgICA8cD5MZXRyYSBkZSA0MHB4PC9wPg0KICAgICAgPGRpdiBjbGFzcz0ibml2ZWw0Ij4NCiAgICAgICAgPHA+TGV0cmEgZGUgODBweDwvcD4NCiAgICAgIDwvZGl2Pg0KICAgIDwvZGl2Pg0KICA8L2Rpdj4NCjwvZGl2Pg==%7CKiB7DQogIG1hcmdpbjogMDsNCn0NCg0KLm5pdmVsMSB7DQogIC8qIFB1ZWRlcyBjYW1iaWFyIGVzdGUgdmFsb3IgKi8NCiAgZm9udC1zaXplOiAyMHB4Ow0KfQ0KDQoubml2ZWwyIHsNCiAgLyogdGFtYcOxbyA9IDIwcHggKiAxID0gMjBweCAqLw0KICBmb250LXNpemU6IDFlbTsNCn0NCg0KLm5pdmVsMyB7DQogIC8qIHRhbWHDsW8gPSAyMHB4ICogMiA9IDQwcHggKi8NCiAgZm9udC1zaXplOiAyZW07DQp9DQoNCi5uaXZlbDQgew0KICAvKiB0YW1hw7FvID0gNDBweCAqIDIgPSA4MHB4ICovDQogIGZvbnQtc2l6ZTogMmVtOw0KfQ0KDQoNCg==%7C
+
+La medida rem depende del elemento raíz, el valor del font-size del elemento raíz es de 16px, por lo tanto, el valor de 2rem es igual a 32px, y así sucesivamente.
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0ibml2ZWwxIj4NCiAgPHA+TGV0cmEgZGUgMjBweDwvcD4NCiAgPGRpdiBjbGFzcz0ibml2ZWwyIj4NCiAgICA8cD5MZXRyYSBkZSAxNnB4PC9wPg0KICAgIDxkaXYgY2xhc3M9Im5pdmVsMyI+DQogICAgICA8cD5MZXRyYSBkZSAzMnB4PC9wPg0KICAgICAgPGRpdiBjbGFzcz0ibml2ZWw0Ij4NCiAgICAgICAgPHA+TGV0cmEgZGUgMzJweDwvcD4NCiAgICAgIDwvZGl2Pg0KICAgIDwvZGl2Pg0KICA8L2Rpdj4NCjwvZGl2Pg==%7CLm5pdmVsMSB7DQogIC8qIFB1ZWRlcyBjYW1iaWFyIGVzdGUgdmFsb3IgKi8NCiAgZm9udC1zaXplOiAyMHB4Ow0KfQ0KDQoubml2ZWwyIHsNCiAgLyogdGFtYcOxbyA9IDE2cHggKiAxID0gMTZweCAqLw0KICBmb250LXNpemU6IDFyZW07DQp9DQoNCi5uaXZlbDMgew0KICAvKiB0YW1hw7FvID0gMTZweCAqIDIgPSAzMnB4ICovDQogIGZvbnQtc2l6ZTogMnJlbTsNCn0NCg0KLm5pdmVsNCB7DQogIC8qIHRhbWHDsW8gPSAxNnB4ICogMiA9IDMycHggKi8NCiAgZm9udC1zaXplOiAycmVtOw0KfQ0KDQoNCg==%7C
+
+Diferencia entre porcentajes y la anchura y altura de la pantalla
+Los porcentajes representan el tamaño con respecto al total del elemento padre. Si el elemento padre tiene 20px, entonces el 100% será de 20px.
+
+Por otra parte, las medidas de anchura vw y altura vh representan el tamaño con respecto al total de la pantalla. Si el elemento tiene un tamaño de 100vw será el 100 por ciento de la pantalla.
+
+Si un elemento tiene todo el tamaño de la pantalla, entonces solamente en ese punto la medida 100% será igual a 100vw o 100vh.
+
+Problema con las medidas de texto
+Los navegadores tienen una opción para cambiar el tamaño del texto. Con medidas absolutas, el tamaño de la letra no cambiará, por lo que será un problema para el usuario.
+
+Con medidas relativas, el tamaño cambiará con respecto a la fuente del elemento raíz. Por lo que estas son una buena opción para solucionar este problema de accesibilidad, en específico la medida rem.
+
+Sin embargo, la medida rem equivale a 16px y puede ser confuso mientras utilices valores altos. Por lo que vamos a cambiar el valor del elemento de la raíz para que la medida rem sea igual a 10px.
+
+En la etiqueta &lt;html&gt; cambia el valor de la propiedad font-size a 62.5%, resultado de una regla de tres: si 16px es igual al 100% entonces cuál será el porcentaje para 10px.
+html {
+    font-size: 62.5%;
+}//cambio de medida 1rem, con este cambio, la medida rem será igual a 10px
+
+mas practica: https://codi.link/PGRpdj5Ib2xpczwvZGl2Pg0KPHA+TWFzPC9wPg0KPGRpdiBjbGFzcz0iY29udGFpbmVyIj48L2Rpdj4=%7CaHRtbHsNCiAgZm9udC1zaXplOiA2Mi41JTsNCn0NCmJvZHl7DQogIG1hcmdpbjogMDsNCn0NCmRpdnsNCiAgd2lkdGg6IDEwMHB4Ow0KICBoZWlnaHQ6IDEwMHB4Ow0KICBiYWNrZ3JvdW5kOiBhbnRpcXVld2hpdGU7DQp9DQpwew0KICBmb250LXNpemU6IDRyZW07DQp9DQouY29udGFpbmVyew0KICAgIHdpZHRoOiAxMDB2dzsNCiAgaGVpZ2h0OiAxMDB2aDsNCiAgYmFja2dyb3VuZDogcGFsZWdyZWVuOw0KfQ==%7C
+
+Responsive Design:
+El diseño responsivo (Responsive Design) consiste en un conjunto de herramientas para que tu sitio se vea bien en varias medidas de pantalla, esto incluye imágenes, tipografía, internacionalización de la página y entre otros.
+
+Las media queries: son reglas CSS que establecen un comportamiento distinto o diferentes estilos en un cierto rango de la pantalla. Esto sirve para establecer el layout del sitio web para diferentes tipos de pantalla: escritorio, tablets y celulares.
+
+Estos son dos tipos de media querie :
+max-width / max-height: establece un rango máximo para cierto comportamiento.
+min-width / min-height: establece un rango mínimo para cierto comportamiento.
+Estos valores son parecidos a condicionales, mientras se cumpla la condición, aplica determinados estilos.
+
+Estructura de la media querie
+//cuando esta desde 0 a 750px "max" entra y cumple lo del codigo
+@media (max-width:750px){
+    div {
+        color: red;
+    }
+    p {
+        background-color: red;
+    }
+}
+
+//a continuacion desde "min" 750px en adelante sucede lo que esta dentro
+@media (min-width:750px){
+    div {
+        color: red;
+    }
+    p {
+        background-color: red;
+    }
+}
+@media queries
+min = desde
+max = hasta
+
+Herramientas del desarrollador para media queries
+Abre las herramientas del navegador y da clic en la opción “Toggle device tool”, aquí podrás manipular la pantalla y observar en cuántos píxeles está ocurriendo determinados estilos.
+
+ejemplo: https://codi.link/PGRpdiBjbGFzcz0iY2FyZDEiPjwvZGl2Pg0KPGRpdiBjbGFzcz0iY2FyZDIiPjwvZGl2Pg0KDQo=%7CKiB7DQogIG1hcmdpbjogMDsNCiAgcGFkZGluZzogMDsNCiAgYm94LXNpemluZzogYm9yZGVyLWJveDsNCn0NCg0KYm9keSB7DQogIHdpZHRoOiAxMDB2dzsNCiAgaGVpZ2h0OiAxMDB2aDsNCn0NCg0KLmNhcmQxew0KICB3aWR0aDogMTAwJTsNCiAgaGVpZ2h0OiAyNSU7DQogIGJhY2tncm91bmQtY29sb3I6IGJyb3duOw0KfQ0KDQouY2FyZDIgew0KICB3aWR0aDogNTAlOw0KICBoZWlnaHQ6IDc1JTsNCiAgYmFja2dyb3VuZC1jb2xvcjogY2hhcnRyZXVzZTsNCn0NCg0KQG1lZGlhIChtaW4td2lkdGg6IDUwMHB4KXsNCiAgLmNhcmQxIHsNCiAgICAgIGJhY2tncm91bmQtY29sb3I6IGNoYXJ0cmV1c2U7DQogIH0NCg0KICAuY2FyZDIgew0KICAgIGJhY2tncm91bmQtY29sb3I6IGJyb3duOw0KICB9DQp9DQoNCg==%7C
+
+para reutilizar los mediaqueries:
+  @mixin breakpoint($width) {
+	@media (min-width: $width) {
+            @content;
+        }
+  }
+La forma correcta de hacer responsive design es ir de chico a grande, es decir empezar por mobile y llegar a desktop.
+Empezamos por:
+Los celulares o dispositivos mobile.
+Las tablets.
+Laptops o computadores de escritorio.
+
+Si tenemos archivos CSS que van a impactar en otros dispositivos con diferente viewport:
+&lt;link rel="stylesheet" href="tablet.css" media="screen and (min-width: 768px)"&gt;
+&lt;link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)"&gt;
+
+Agregamos el atributo media cuyo valores va a ser el mínimo que necesitamos para hacer ese breakpoint, que es ese cambio en el layout.
+Orden final:
+&lt;link rel="stylesheet" href="style.css"&gt; &lt;!-- Los dispositiivos mobiles --&gt;
+&lt;link rel="stylesheet" href="tablet.css" media="screen and (min-width: 768px)"&gt;
+&lt;link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)"&gt;
+
+revisar de diseño responsive:
+https://miguel-angelrc.github.io/curso-frontend/10_card.html
+
+revisar de tarjeta:
+https://platzi.com/comentario/2916260/
+
+¿Qué son y para qué nos sirven las arquitecturas CSS?
+Sirven para mantener un orden y una coherencia durante todo el proyecto. Tiene los siguientes objetivos:
+
+Predecibles: escribir reglas claras.
+Reutilizable: no escribir código redundante.
+Mantenible: que sea fácil de leer y adaptable a los estándares.
+Escalable: que pueda crecer fácilmente sin afectar el rendimiento.
+.
+Estos objetivos se deben ver reflejadas en buenas practicas que debe conocer todo el equipo involucrado en el proyecto como:
+
+Establecer reglas
+Explicar la estructura base
+Establecer estándares de codificación
+Evitar largas hojas de estilo
+Documentación
+
+Buenas prácticas de las arquitecturas de CSS
+Las buenas prácticas de las arquitecturas de CSS son:
+
+Lineamientos y estándares: definir normas en tu grupo de trabajo de cómo estará escrito el código.
+Documentación: establecer una breve explicación del código y de los lineamientos, esto sirve especialmente para nuevas personas se familiaricen con lo que deben hacer.
+Componentes: establecer de manera componetizada cada uno de los elementos de tu página, es decir, manejarlos por partes para después unirlos en un todo.
+
+OOCSS, BEM, SMACSS, ITCSS y Atomic Design
+
+Qué es CSS orientado a objetos
+La arquitectura OOCSS (Object Oriented CSS) consiste en separar la estructura principal y la piel o máscara.
+
+En otras palabras, consiste en tener objetos que son estructuras principales. Estos objetos estarán unidos en una máscara, donde esta será la que cambie pero manteniendo la estructura intacta.
+https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/#top
+
+Qué es BEM: bloque, elemento y modificador
+La arquitectura BEM (Block-Element-Modifier) es una de las más utilizadas actualmente. Consiste en manejar los elementos en clases definidas por bloques, elementos y modificadores.
+
+Bloque: es la estructura principal que es contenedora de varios elementos.
+Elemento: es el elemento HTML que hace referencia el contenedor.
+Modificador: es un estilo específico para el elemento. Por ejemplo, un botón que tenga un color diferente a los demás, esto tiene relación con la especificidad.
+
+https://en.bem.info/methodology/
+
+
+Qué es la arquitectura escalable y modular de CSS
+La arquitectura SMACSS (Scalable and Modular Architecture for CSS) indica el orden de componentes que estarán ubicados en carpetas. La unión de estos componentes dará como resultado tu página web con estilos.
+
+Base: elementos base, como botones, títulos, enlaces.
+Layout: estructura de la página, relacionado con el Responsive Design.
+Módulos: elementos que contienen a los elementos base.
+Estado: estilos relacionados con el comportamiento de elemento, relacionado con las pseudoclases y pseudoelementos.
+Temas: conjunto de estilos que definen tu página web.
+https://medium.com/@GreenXIII/organize-your-css-smacss-way-89c087db5092
+
+Qué es el triángulo invertido de CSS
+La arquitectura ITCSS (Inverted Triangle CSS) consiste en separar los archivos del proyecto; mediante ajustes, herramientas, elementos, entre otros. Todo esto para manejar los detalles de especificidad, claridad y magnitud.
+https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+
+Qué es el diseño atómico
+La arquitectura Atomic Design también es una de las más utilizadas actualmente. Consiste en manejar los elementos como una estructura mínima, a partir de la unión de varias de estas, dará como resultado los estilos de la página web. Se basa en la estructura mínima de la materia, los átomos.
+
+Átomos: estructura mínima; como botones, enlaces, títulos, entre otros.
+Moléculas: unión de átomos.
+Organismos: unión de moléculas.
+Plantillas: unión de organismos.
+Páginas: unión de plantillas.
+https://bradfrost.com/blog/post/atomic-web-design/
+
+How to organize your CSS with OOCSS, BEM & SMACSS: https://intelygenz.medium.com/how-to-organize-your-css-with-oocss-bem-smacss-a2317fa083a7
+
+LA MAS USADA DE TODAS: 
+https://platzi.com/blog/bem/
+
+CSS para entrevistas y mundo laboral:
+No hay una fórmula secreta para pasar cualquier entrevista, cada una varía de acuerdo a la empresa. La mayoría de compañías buscan que domines las tres tecnologías web en conjunto: HTML, CSS y JavaScript.
+
+Aprende a dominar los conceptos
+Hay muchos temas para dominar cuando inicias tu camino en frontend developer y los debes entender, no de manera profunda, sino que sepas defenderte.
+
+No te aprendas de memoria, trata de realizar proyectos, copia alguna interfaz (OJO, solo la interfaz) de alguna página famosa como Netflix, Facebook, e incluso de Platzi 💚.
+
+Sin embargo, no realices demasiadas copias, debes entender las bases de CSS para seguir con JavaScript lo más rápido posible. Cuando hagas proyectos de JavaScript, también incluirás CSS, por lo que puedes seguir aprendiendo uno mientras repasas el otro.
+
+El “No” es tu amigo, el “no sé” tu enemigo
+Cuando te digan “No” en una entrevista, no significa el fin del mundo, míralo como un concepto que te falta un poco repasar, mejora y, a por la siguiente entrevista.
+
+No digas simplemente “no sé” a algo que desconozcas aún. Entabla una conversación, sé honesto pero muestra tu interés en mejorar. Menciona que no sabes tal tecnología o tal concepto, pero, que lo puedes aprender. Puede que no funcione, pero es mejor a decir un seco “no sé”.
+
+Todo esto que te menciono tiene relación con tus habilidades blandas (soft skills) que también son igual importantes como tu conocimiento.
+
+para ir creando portafolio: 
+https://www.frontendmentor.io/
+
+algunas preguntas para entrevistas:
+https://github.com/learning-zone/css-basics
+
+
+
+&lt;
+&gt;

@@ -1,0 +1,99 @@
+Destructuring:
+let a,b,rest
+[a,b]=[10,20]
+//a=10, b=20
+[a, b, ...rest] = [10, 20, 30, 40, 50]
+//rest=[30, 40, 50]
+//a=10
+//b=20
+
+//sintaxis
+const [a, b] = array;
+const [a, , b] = array;
+const [a = aDefault, b] = array;
+const [a, b, ...rest] = array;
+const [a, , b, ...rest] = array;
+const [a, b, ...{ pop, push }] = array;
+const [a, b, ...[c, d]] = array;
+
+const { a, b } = obj;
+const { a: a1, b: b1 } = obj;
+const { a: a1 = aDefault, b = bDefault } = obj;
+const { a, b, ...rest } = obj;
+const { a: a1, b: b1, ...rest } = obj;
+const { [key]: a } = obj;
+
+let a, b, a1, b1, c, d, rest, pop, push;
+[a, b] = array;
+[a, , b] = array;
+[a = aDefault, b] = array;
+[a, b, ...rest] = array;
+[a, , b, ...rest] = array;
+[a, b, ...{ pop, push }] = array;
+[a, b, ...[c, d]] = array;
+
+({ a, b } = obj); // brackets are required
+({ a: a1, b: b1 } = obj);
+({ a: a1 = aDefault, b = bDefault } = obj);
+({ a, b, ...rest } = obj);
+({ a: a1, b: b1, ...rest } = obj);
+
+
+
+//dest
+const x = [1, 2, 3, 4, 5];
+const [y, z] = x;
+//y=1, z=2
+
+//dest
+const obj = { a: 1, b: 2 };
+const { a, b } = obj;
+// es igual a:
+//a=obj.a
+//b=obj.b
+
+//
+const obj = { a: 1, b: { c: 2 } };
+const { a } = obj; // a=1
+let {
+  b: { c: d },
+} = obj; // se reasigna d=2
+
+//
+const numbers = [];
+const obj = { a: 1, b: 2 };
+({ a: numbers[0], b: numbers[1] } = obj);
+// a=1,b=2;numbers = [1,2]
+
+/* Note: The parentheses ( ... ) around the assignment statement are required when using object literal destructuring assignment without a declaration.
+
+{ a, b } = { a: 1, b: 2 } is not valid stand-alone syntax, as the {a, b} on the left-hand side is considered a block and not an object literal. However, ({ a, b } = { a: 1, b: 2 }) is valid, as is const { a, b } = { a: 1, b: 2 }.
+
+If your coding style does not include trailing semicolons, the ( ... ) expression needs to be preceded by a semicolon, or it may be used to execute a function on the previous line.
+ */
+
+/* Nota: Los paréntesis (...) alrededor de la instrucción de asignación son obligatorios cuando se utiliza la asignación de desestructuración de literal de objeto sin una declaración.
+
+{ a, b } = { a: 1, b: 2 } no es una sintaxis independiente válida, ya que {a, b} en el lado izquierdo se considera un bloque y no un objeto literal. Sin embargo, ({ a, b } = { a: 1, b: 2 }) es válido, al igual que const { a, b } = { a: 1, b: 2 }.
+
+Si su estilo de codificación no incluye punto y coma al final, la expresión (...) debe estar precedida por un punto y coma, o puede usarse para ejecutar una función en la línea anterior.
+ */
+
+const [a, b] = new Map([
+    [1, 2],
+    [3, 4],
+  ]);
+  console.log(a, b); // [1, 2] [3, 4]
+
+
+
+//
+const user = {
+    id: 42,
+    isVerified: true,
+  };
+  
+  const { id, isVerified } = user;
+  
+  console.log(id); // 42
+  console.log(isVerified); // true

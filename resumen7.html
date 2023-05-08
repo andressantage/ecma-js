@@ -13,6 +13,238 @@
     <h1>Ejecutar json-server</h1>
 
 <pre><code class="language-javascript">    
+//MAYO 3
+//el silencio es nuestra condena
+
+//declarada
+function saludar(p1,p2,p3) {
+    console.log(p1,p2,p3);    
+}
+saludar(["miguel", "camilo", "pepe"])
+
+//destructuring una lista
+function saludar(arg) {
+    let [a,b,c]=arg
+    console.log(c);    
+}
+saludar(["miguel", "camilo", "pepe"])
+
+//solor nombre
+function saludar(arg) {
+    let {nombre} = arg;
+    console.log(nombre);    
+}
+saludar({nombre:"Miguel", nombre2: "pepe"})
+
+//ejecuta por default
+function saludar(arg) {
+    let {nombre2="juan"} = arg;
+    console.log(nombre2);    
+}
+saludar({nombre:"Miguel", nombre2: "pepe"})
+
+//ejecuta por default []
+function saludar(arg) {
+    let {nombre2=[]} = arg;
+    console.log(nombre2);    
+}
+saludar({nombre:"Miguel", nombre2: ["pepe"]})
+
+//ejecuta por default []
+function saludar(arg) {
+    let nombre2;
+    ({nombre2} = arg);
+    console.log(nombre2);    
+}
+saludar({nombre:"Miguel", nombre2: ["juan"]})
+
+//validar valores, si cumple entra y sino pailas:
+//()? es igual a: 
+//dejemplo:
+num1=2
+let x= (num==1) ? "ok":":("
+console.log(x)//":("
+
+
+
+function f(){
+    num1=2
+    let x= (num==1) ? "ok":":("
+    if(x==":("){
+        console.log("error")
+        return
+    }
+    console.log("no sali")
+}
+
+//if(num==1){x="ok";};else{x=":(";}
+
+
+function divir(arg) {
+    let {num1, num2} = arg;
+    num1 = (typeof num1 == "number") ? num1: 0;
+    num2 = (typeof num2 == "number" && num2>0) ? num2: 1;
+    console.log(num1/num2);
+  
+}
+
+divir({num1:3, num2: 5})
+
+
+typeof num1 === "number" && typeof num2 === "number" ? null : (() => { throw new Error("Los valores ingresados no son números."); })();
+
+//para mirar si funciona o no, entonces envia un error en caso de :
+function divir(arg) {
+    let num1, num2, res;
+    ({num1, num2} = arg);
+    num1 = (typeof num1 == "number") ? num1: undefined;
+    num2 = (typeof num2 == "number" && num2>0) ? num2: undefined;
+    res = num1/num2;
+    return (isNaN(res)) ? "Porfavor hagalo bien" : res;
+  
+}
+
+console.log(divir({num1:5, num2: 1}));
+
+//para mirar otra forma de que funcione o no
+function divir(arg) {
+    let num1, num2, res="Porfavor hagalo bien";
+    ({num1, num2} = arg);
+    if(typeof num1 != "number") return res; 
+    if(typeof num2 != "number") return res; 
+    return num1/num2;
+  
+}
+console.log(divir({num1:"5", num2: 1}));
+
+
+//con manejo de try y catch:
+function dividir(arg) {
+
+    try {
+      let num1, num2;
+      ({num1, num2} = arg);
+      if ( num2 === 0 || typeof num1 != "number" || typeof num2 != "number") {
+        throw new Error('El segundo argumento no puede ser cero.');
+      }
+      return num1/num2;
+    } 
+
+    catch (error) {
+      console.log(`Se generó un error: ${error.message}`);
+    }
+}
+  
+console.log(dividir({num1:5, num2: '1'}));
+
+//otro
+function divir(arg) {
+    let num1, num2, res="Porfavor hagalo bien";
+    ({num1, num2} = arg);
+    typeof num1 === "number" && typeof num2 === "number" ? null : (() => { return res; })();
+    return num2 !== 0 ? num1 / num2 : (() => { return "No se puede dividir entre cero."; })();
+  
+}
+console.log(divir({num1:5, num2: 2}));
+
+//calculadora de proceso:
+function divir(arg) {
+    let num1, num2, res="Porfavor hagalo bien";
+    ({num1, num2} = arg);
+    if(typeof num1 != "number") return res; 
+    if(typeof num2 != "number" || num2==0) return res; 
+    return num1/num2;
+  
+}
+console.time("my ejecucion");
+console.log(divir({num1:5, num2: 0}));
+console.timeEnd("my ejecucion");
+//igual que la anterior que calculo el tiempo
+function dividir(arg) {
+    
+    try {
+        let num1, num2;
+        ({ num1, num2 } = arg);
+        if (num2 === 0 || typeof num1 != "number" || typeof num2 != "number") {
+            throw new Error('El segundo argumento no puede ser cero.');
+        }
+        return num1 / num2;
+    }
+    catch (error) {
+        console.log(`Se generó un error: ${error.message}`);
+    }
+   
+}
+console.time("my ejecucion 2");
+console.log(dividir({ num1: 5, num2: 1 }));
+console.timeEnd("my ejecucion 2");
+
+//cosas ademas vistas:
+//js (la parte de FormDat())
+document.querySelector("#myForm").addEventListener("submit", (e)=>{
+    let data = new FormData(e.target);
+    for (const key of data.keys()) {
+        console.log(key);
+      }
+    e.preventDefault();
+})
+//html
+/* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="data1"><input type="text" name="data2"><input type="text" name="data3"><input type="text" name="data4"><input type="text" name="data5"><input type="text" name="data6"><input type="text" name="data7"><input type="text" name="data8"><input type="text" name="data9">
+        <input type="submit" value="obtener">
+    </form>
+</body>
+</html>
+ */
+//data
+let obj = {
+    nombre: "Miguel",
+    apellido: "Castro",
+    edad: 23
+};
+console.log(Object.values(obj));
+console.log(Object.keys(obj));
+console.log(Object.entries(obj));
+
+//otra forma:
+//js
+document.querySelector("#myForm").addEventListener("submit", (e)=>{
+   
+    let data = Object.fromEntries(new FormData(e.target))
+    console.log(data);
+    e.preventDefault();
+})
+//html
+/* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="data1"><input type="text" name="data2"><input type="text" name="data3"><input type="text" name="data4"><input type="text" name="data5"><input type="text" name="data6"><input type="text" name="data7"><input type="text" name="data8"><input type="text" name="data9">
+        <input type="submit" value="obtener">
+    </form>
+</body>
+</html>
+ */
+
+
+
 //MAYO 4
 
 //Conceptos impotantes:
@@ -25,10 +257,11 @@ LTS son las siglas de "Long Term Support", que en español significa "Soporte a 
 nvm: herramienta de línea de comandos que permite a los desarrolladores instalar y administrar múltiples versiones de Node.js en su sistema.
 nvm: Node Version Manager
 
+
 Comandos para node.js y proceso para levantar el servidor (es decir usar javascript en el lado ddel servidor):
 nvm list-remote //para mostrar lista de versiones disponibles
 //las versiones mas estable y mejores estan con "LTS"
-//la mejor version es: Latest LTS: Hydrogen
+//la mejor version es: Latest LTS: Hydrogen, revisar el numero de esa version y tenerlo en cuenta
 //el simbolo que aparece asi: -> v18.0.0 significa que ya esta instalada al version v18.0.0 de node.js
 
 nvm --version //para saber que version hay y que version se tiene
@@ -39,14 +272,20 @@ nvm install 18.0.0 //instala la version v18.0.0
 nvm deactivate //deja de usar node.js en caso de tenerse abierta o ejecutandose
 nvm uninstall v18.0.0 //desinstala la version v18.0.0 o la que tengas instalada
 //ahora si hacer:
-nvm install 18.0.0 //instala la version v18.0.0
+nvm install 18.0.0 //instala la version v18.0.0, pero instala la mejor version
 
 nvm use v18.0.0 //es para usar una cierta version, en este caso es la v18.0.0
 
-code . //abre VSC (Visual Studio Code)
+code . //abre VSC (Visual Studio Code) y crea un carpeta donde pondra los documentos de la practica
 
 //obligatorio crear:
 db.json //crearlo en VSC
+y agregar:
+{
+    "usuario": [],
+    "direccion": [],
+    "estudios": []
+}
 
 //los siguientes comando ejecutarlo en la terminal de VSC
 npm init -y //se inicializa y crea un archivo package.json
@@ -62,10 +301,14 @@ npm i json-server //se crea el archivo package-lock.json
 //ejecutar el comando
 npm run server //crea el servidor y lo levanta, listo ya tienes un servidor
 
-//luego ir aqui a ese link, en esa parte esta la documentacion:
+//tambien crear una carpeta y en ella crear los documentos: index.html, style.css, main.js, db.json, db(1).json (este documento fue el que se obtuvo tras darle click varias veces al boton de enviar), y otros creados tras el uso de los comandos en la terminal
+//A continuacion estan los archivos que se crearon y los que se crearon:
+https://github.com/andressantage/servidor-con-node.js
+
+//Ir al link, en esa parte esta la documentacion para el servidor:
 http://localhost:3000/
 
-------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 //Otro conceptos imporantes:
 AJAX (Asynchronous JavaScript And XML): es una técnica de desarrollo web que permite actualizar una parte de una página web sin tener que recargar toda la página.
 
@@ -94,19 +337,33 @@ DELETE: Se utiliza para eliminar un recurso en un servidor. Por ejemplo, cuando 
 OPTIONS: Se utiliza para solicitar información sobre las opciones de comunicación disponibles para una URL o servidor en particular. Por ejemplo, cuando un navegador web envía una solicitud OPTIONS a un servidor, el servidor puede responder con una lista de métodos HTTP compatibles, opciones de autenticación y otros detalles de configuración.
 
 
-//Mayo 5, Comando y proceso para usar json-server como base de datos
+//Mayo 5, 
+//Comando y proceso para usar json-server como base de datos
+
 //Para correr el json-server en la terminal hacer lo siguiente:
-//Abrir VSC e ir y ejecutar los siguientes comandos en la terminal de VSC:
+//Crear una carpeta donde guardaras los documentos a usar
+//Abrir VSC e ir y ejecutar los siguientesel comandos en la terminal de VSC:
 npm install -g json-server //para instalar json-server
 json-server -w db.json -p 4001 //es de la forma json-server -w nombreArchivoJson.json -p NumeroDePuerto //en nombreArchivoJson.json se alojara la base de datos como json
 
-//listo ya esos fueron ya todos los comandos usados
+//listo esos fueron todos los comandos usados y el proceso para correr el json-server
+
+Ahora hacer el proceso de creacion de una aplicacion que use json-server
+El db.json se usa como base de datos ahi hay esta la informacion que se mostrara en el index.html y el main.js es para hacer la conexion entre el db.json y el index.html y la interaccion con el usuario.
+En el codigo hay comentarios que explican el porque de cada cosa.
+
+Aqui estan los documentos usados (index.html, main.js, db.json):
+https://github.com/andressantage/json-server
+
+Poner los archivos en la carpeta creada y abrir el index.html con Go Live y ejecuta cosas, en el db.json se podran ver los cambios e igual en la consola inspeccionando la pagina
+
+Aqui esta la visualizacion del index.html:
+https://andressantage.github.io/json-server/
 
 
+////////Esta PARTE DE ABAJO son conceptos para ayudar a entender cosas de lo anterior
 
-////////AUN POR REVISAR
-
-await //es para devolver si hay un error
+await (es esperar en español)//es para devolver si hay un error
 
 headers //son los encabezados de a donde se esta enviando la informacion, es decir propiedades del archivo al viajar por la red
 
@@ -114,21 +371,20 @@ ejercicio: para mirar los headers en youtube
 link: https://www.youtube.com/
 entrar al link
 luego ir a inspeccionar la pagina
-ir a Network
+ir a Network o red 
 darle en reload o recargar la pagina
-dar click encima de 200, u otras cosas que se cargan ahi
-luego aparecera Headers y otras cosas
-en fin ya visualizas los headers
-
+dar click encima de algun linea en la columna nombre las cuales se muestran cuando se cargan
+luego aparecera Headers o encabezados y otras cosas
+en fin ya visualizas los headers o encabezados al darle click ahi
 
 El método FormData() se utiliza para obtener todos los datos del formulario en forma de objeto FormData.
 
 Object.fromEntries(): convierte ese objeto FormData en un objeto JavaScript normal
 //toma una matriz de pares clave-valor (en este caso, los campos del formulario y sus valores) y devuelve un objeto JavaScript con esas claves y valores.
 
-.target // El target en este caso se refiere al elemento HTML que está siendo afectado por el evento que se está manejando
+.target // El target se refiere al elemento HTML que está siendo afectado por el evento que se está manejando
 
-En HTML, los elementos de formulario, como los botones, pueden tener atributos personalizados, que se definen con el prefijo data-. En este caso, se asume que el botón que se ha hecho clic para enviar el formulario tiene un atributo personalizado llamado data-accion.
+atributo data-accion: en HTML, los elementos de formulario, como los botones, pueden tener atributos personalizados, que se definen con el prefijo data-. En este caso, se asume que el botón que se ha hecho clic para enviar el formulario tiene un atributo personalizado llamado data-accion.
 
 La propiedad e.submitter representa el botón que se ha hecho clic para enviar el formulario, y se utiliza el atributo dataset para acceder al valor personalizado del atributo data-accion.
 
@@ -136,6 +392,7 @@ let opc = e.submitter.dataset.accion //en opc se guarda el valor que esta en dat
 es decir que opc puede tomar
 opc="GET"
 opc="PUT"
+y asi..
 
 opc[e.submitter.dataset.accion](data) // la parte opc[e.submitter.dataset.accion] encuentra el valor del objeto y luego el (data) lo que hace es que le pasa los datos a dentro del objeto en caso de una funcion. Asi: opc[e.submitter.dataset.accion](data)
 
@@ -144,7 +401,7 @@ en los objetos tener una llave asi: "GET":value ES IGUAL A 'GET':value IGUAL TAM
 async para funcion asincronica:
 Una función asíncrona es una función que trabaja de manera asincrónica, lo que significa que no bloquea el hilo principal de ejecución mientras espera que se completen ciertas tareas.
 
-Link para estudiar URL en Javascript (peticiones): https://lenguajejs.com/javascript/peticiones-http/url/
+Link para estudiar URL en Javascript (forma para hacer links para peticiones): https://lenguajejs.com/javascript/peticiones-http/url/
 
 
 

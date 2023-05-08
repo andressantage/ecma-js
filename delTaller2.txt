@@ -1,0 +1,260 @@
+/* 1. Construir el algoritmo para un programa que ingrese tres
+notas de un alumno, si el promedio es menor o igual a 3.9
+mostrar un mensaje "Estudie“, de lo contrario un mensaje que
+diga "becado" */
+
+var n=3
+var x=[]
+for(var i=0;i<n;i++){
+    var y=parseFloat(prompt("Ingrese la nota numero: "+(i+1)))
+    x.push(y)
+}
+var suma=0
+for(var i=0;i<n;i++){
+    suma=suma+x[i]
+}
+
+var promedio=suma/n
+
+if(promedio<=3.9){
+    alert("Estudie")
+}else{
+    alert("Becado")
+}
+
+/////////////////////////////////
+/* 2. Dado un número indicar si es par o impar y si es mayor de 10. */
+
+var n=parseInt(prompt("Ingrese un numero: "))
+
+var x1="par"
+var x2="impar"
+
+var y1="mayor"
+var y2="menor"
+var y3="igual"
+
+if(n%2===0){
+    if(n>10){
+        alert("Es un numero "+x1+" y es "+y1+" a 10")
+    }else if(n===10){
+        alert("Es un numero "+x1+" y es "+y3+" a 10")
+    }else{
+        alert("Es un numero "+x1+" y es "+y2+" a 10")
+    }
+}else{
+    if(n>10){
+        alert("Es un numero "+x2+" y es "+y1+" a 10")
+    }else if(n===10){
+        alert("Es un numero "+x2+" y es "+y3+" a 10")
+    }else{
+        alert("Es un numero "+x2+" y es "+y2+" a 10")
+    }
+}
+
+/////////////////////////////////
+/* 3. Construir el algoritmo para determinar el voltaje de un
+circuito a partir de la resistencia y la intensidad de corriente. */
+
+var i=parseFloat(prompt("Ingrese la resistencia del circuito:"))
+var r=parseFloat(prompt("Ingrese la intensidad de corriente del circuito:"))
+var v=i*r
+alert("EL voltaje del circuito es: "+v)
+
+/////////////////////////////////
+/* 4. Construir el algoritmo que solicite el nombre y edad de 3
+personas y determine el nombre de la persona con mayor edad. */
+
+var x=[]
+var y=[]
+for(var i=0;i<3;i++){
+    alert("Ingresara a continuacion los datos para la persona numero: "+(i+1))
+    x.push(prompt("Nombre: "))
+    y.push(parseInt(prompt("Edad: ")))
+}
+
+var mayor=y[0];
+for (var i=1; i<y.length;i++){
+  if (y[i]>mayor){
+    mayor=y[i];
+  }
+}
+var n=y.indexOf(mayor)
+
+alert("El nombre de la persona con mayor edad es: "+x[n])
+
+/////////////////////////////////
+/* 5. Construir el algoritmo que lea por teclado dos números,
+si el primero es mayor al segundo informar su suma y
+diferencia, en caso contrario, informar el producto y la
+división del primero respecto al segundo. */
+
+var x=parseFloat(prompt("Ingrese el primer numero: "))
+var y=parseFloat(prompt("Ingrese el segundo numero: "))
+
+if(x>y){
+    suma=x+y
+    dif=x-y
+    alert("Su suma es: "+suma+" y su diferencia es: "+dif)
+}else{
+    pro=x*y
+    division=x/y
+    alert("Su producto es: "+pro+" y su division es: "+division)
+}
+
+/////////////////////////////////
+/* 6. Construir el algoritmo en Javascript para un programa
+para cualquier cantidad de estudiantes que lea el nombre,
+el sexo y la nota definitiva y halle al estudiante con la mayor
+nota y al estudiante con la menor nota y cuantos eran
+hombres y cuantos mujeres. */
+
+var n=parseInt(prompt("Escribir cantidad de estudiantes: "))
+var sexo=[]
+var nombre=[]
+var nota=[]
+
+var m=0
+var f=0
+var mayor
+var menor
+for(var i=0;i<n;i++){
+    alert("Ingrese los datos para el estudiante numero: "+(i+1))
+    nombre.push(prompt("Nombre: "))
+    sexo.push(prompt("Sexo [masculino: M, femenino: F]:"))
+    if(sexo[i]==="M"){
+        m++
+    }else if(sexo[i]==="F"){
+        f++
+    }
+    nota.push(parseFloat(prompt("Nota definitiva: ")))
+    if(i===0){
+        mayor=nota[i]
+        menor=nota[i]
+    }else{
+        if(nota[i]>mayor){
+            mayor=nota[i]
+        }
+        if(nota[i]<menor){
+            menor=nota[i]
+        }
+    }
+}
+
+if(!m){
+    m=0
+}
+
+//menor
+n1=nota.indexOf(menor)
+
+//mayor
+n2=nota.indexOf(mayor)
+
+alert("El estudiante con la mayor nota es "+nombre[n2]+" y el estudiante con la menor nota es "+nombre[n1]+" la cantidad de hombres es "+m+" y la cantidad de mujeres es "+f)
+
+/////////////////////////////////
+/* 7. Programa que pida el ingreso del nombre y precio de un artículo y la
+cantidad que lleva el cliente. Mostrar lo que debe pagar el comprador
+en su factura. */
+
+var nombre=prompt("Ingresar nombre: ")
+var precio=parseFloat(prompt("Ingresar precio: "))
+var cant=parseInt(prompt("Ingresar la cantidad que lleva el cliente"))
+
+var z=precio*cant
+alert("El comprador "+nombre+" debe pagar en su factura: "+z.toLocaleString())
+
+//////////////////////////////////////
+/* 8. Programa que Ingrese por teclado:
+a. el valor del lado de un cuadrado para mostrar por pantalla el
+perímetro del mismo */
+
+var l=parseFloat(prompt("Ingrese el valor de logitud del cuadrado: "))
+var p=4*l
+alert("El valor del perimentro es: "+p)
+
+/* b. la base y la altura de un rectángulo para mostrar el área del
+mismo */
+
+var b=parseFloat(prompt("Ingresar base del rectangulo: "))
+var h=parseFloat(prompt("Ingresar altura del rectangulo: "))
+
+var area=b*h
+
+alert("Area del rectangulo es: "+area)
+
+/////////////////////////////////
+/* 9. N atletas han pasado a finales en salto triple en los juegos
+olímpicos femenino de 2022. Diseñe un programa que pida por
+teclado los nombres de cada atleta finalista y a su vez, sus
+marcas del salto en metros. Informar el nombre de la atleta
+campeona que se quede con la medalla de oro y si rompió
+récord, reportar el pago que será de 500 millones. El récord
+esta en 15,50 metros. */
+
+var n=parseInt(prompt("Ingresar cantidad de atletas: "))
+alert("Ingresar los datos de cada atleta")
+
+var nombre=[]
+var salto=[]
+
+var mayor=0
+for(var i=0;i<n;i++){
+    alert("Ingresar los datos de la atleta numero: "+(i+1))
+    nombre.push(prompt("Nombre: "))
+    salto.push(parseFloat(prompt("Registro en metros del salto: ")))
+
+    if (salto[i]>mayor){
+        mayor=salto[i];
+    }
+}
+if(mayor>15.5){
+    var a=" rompió récord olímpico, reportar el pago que será de 500 millones."
+}else{
+    var a=" no rompió récord olímpico."
+}
+var x=salto.indexOf(mayor)
+alert("El nombre de la atleta campeona es "+nombre[x]+", quedandose con la medalla de oro con un registro en salto triple de "+mayor+" y "+a)
+
+/////////////////////////////////
+/* 10. Desarrolle un programa cíclico que capture un dato
+numérico cada vez, y los vaya acumulando. El programa se
+detiene cuando el usuario digita un cero. El programa debe
+mostrar: LA SUMATORIA DE LOS VALORES, EL VALOR DEL
+PROMEDIO, CUÁNTOS VALORES FUERON DIGITADOS, MAYOR
+VALOR Y MENOR VALOR. */
+
+var suma=0
+
+var n=1
+var acum=0
+
+var mayor
+var menor
+while(n!==0){
+    var n=parseFloat(prompt("Digite un dato numérico"))
+    if(n!==0){
+    suma=suma+n
+    acum=acum+1
+    if(acum===1){
+        menor=n
+        mayor=n
+    }else{
+        if(n<menor){
+            menor = n;
+        }    
+        if(n>mayor){
+            mayor = n;
+        }    
+    }
+    }   
+}
+
+var promedio=suma/acum
+
+if(acum!==0){
+alert("La sumatoria de los datos es: "+suma+", el valor del promedio es: "+promedio+", la cantida de valores digitados es "+acum+", el valor mayor es "+mayor+" y el menor es "+menor)
+}else{
+    alert("No aporto informacion de los datos")
+}
